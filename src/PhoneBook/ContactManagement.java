@@ -2,12 +2,15 @@ package PhoneBook;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 
 public class ContactManagement implements PhoneBook {
 
 	final Collection<Contact> contactList;
+	final HashMap<String,Collection<Contact>> contactGroupsHashMap;
 	public ContactManagement(){
 		this.contactList = new ArrayList<Contact>();
+		this.contactGroupsHashMap = new HashMap<String,Collection<Contact>>();
 	}
 	
 	public void addContact(Contact contact){
@@ -33,4 +36,35 @@ public class ContactManagement implements PhoneBook {
 		return contact.getEmails();
 	}
 
+	@Override
+	public void updateContacts() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addGroup(String groupType) {
+		Collection<Contact> grpList=new ArrayList<Contact>();
+		contactGroupsHashMap.put(groupType, grpList);
+	}
+	public void addGroup(String groupType, Contact contact){
+		if(contactGroupsHashMap.containsKey(groupType)){
+			contactGroupsHashMap.get(groupType).add(contact);
+		}else{
+			addGroup(groupType);
+			addGroup(groupType, contact);
+		}
+	}
+	public String getGroupList(){
+		return contactGroupsHashMap.toString();
+	}
+	public int getGroupListSize(){
+		return contactGroupsHashMap.size();
+	}
+	public void removeGroup(String groupType){
+		if(contactGroupsHashMap.containsKey(groupType)){
+			contactGroupsHashMap.remove(groupType);
+		}else{	
+			System.out.println("No such group exists!");
+		}	
+	}
 }

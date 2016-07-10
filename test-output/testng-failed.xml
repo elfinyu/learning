@@ -5,7 +5,8 @@
     <classes>
       <class name="test.PhoneBookTest">
         <methods>
-          <include name="TestAdd"/>
+          <include name="testAdd"/>
+          <include name="createPhonebook"/>
         </methods>
       </class> <!-- test.PhoneBookTest -->
     </classes>

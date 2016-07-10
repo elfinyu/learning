@@ -46,7 +46,7 @@ public class Contact {
 		Set<String> contactNoSet=contactNumbers.keySet();
 		return contactNoSet.toString();
 	}		
-	public void showContactNumbers(){
+	public void showDetailedPhoneNumbers(){
 		Set<String> contactNoSet=contactNumbers.keySet();
 		for(String contactNo:contactNoSet){
 			System.out.println("ConactNo:" + contactNo + " Type:" + contactNumbers.get(contactNo));
@@ -55,6 +55,12 @@ public class Contact {
 	public String getEmails(){
 		return contactEmails.keySet().toString();
 	}
+	
+	public void addContactToGroup(){
+		
+	}
+	
+	
 	public void setTitle(String title){
 		this.title=title;
 	}
