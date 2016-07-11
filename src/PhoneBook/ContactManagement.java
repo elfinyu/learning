@@ -1,5 +1,6 @@
 package PhoneBook;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,11 +20,12 @@ public class ContactManagement implements PhoneBook {
 	public void removeContact(Contact contact){
 		contactList.remove(contact);
 	}
-	public void showContacts(){
+	public void showContacts(PrintStream out){
 		for(Contact c:contactList){
-			System.out.println("Contact "+((ArrayList<Contact>)contactList).indexOf(c)+" :"+ c
+			out.println("Contact "+((ArrayList<Contact>)contactList).indexOf(c)+" :"+ c
 					+" ContactNo.:"+ c.getPhoneNumbers()
 					+" ContactEmail:"+ c.getEmails());
+			
 		}
 	}
 	
