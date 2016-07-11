@@ -26,6 +26,7 @@ public class ContactManagement implements PhoneBook {
 					+" ContactEmail:"+ c.getEmails());
 		}
 	}
+	
 	public String getContactList(){
 		return contactList.toString();
 	}
@@ -66,5 +67,16 @@ public class ContactManagement implements PhoneBook {
 		}else{	
 			System.out.println("No such group exists!");
 		}	
+	}
+
+	@Override
+	public int getTotalContacts() {
+		return this.contactList.size();
+	}
+
+	@Override
+	public Contact getContact(int index) {
+		Contact[] array = this.contactList.toArray(new Contact[this.contactList.size()]);
+		return array[index];
 	}
 }
