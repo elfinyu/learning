@@ -1,9 +1,13 @@
 package PhoneBook;
 
 import java.io.PrintStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class ContactManagement implements PhoneBook {
 
@@ -14,18 +18,20 @@ public class ContactManagement implements PhoneBook {
 		this.contactGroupsHashMap = new HashMap<String,Collection<Contact>>();
 	}
 	
+	@Override
 	public void addContact(Contact contact){
 		contactList.add(contact);
 	}
+	@Override
 	public void removeContact(Contact contact){
 		contactList.remove(contact);
 	}
+	@Override
 	public void showContacts(PrintStream out){
 		for(Contact c:contactList){
 			out.println("Contact "+((ArrayList<Contact>)contactList).indexOf(c)+" :"+ c
 					+" ContactNo.:"+ c.getPhoneNumbers()
 					+" ContactEmail:"+ c.getEmails());
-			
 		}
 	}
 	
@@ -43,12 +49,14 @@ public class ContactManagement implements PhoneBook {
 	public void updateContacts() {
 		// TODO Auto-generated method stub
 		
-	}
-
+	}	
+	
 	public void addGroup(String groupType) {
 		Collection<Contact> grpList=new ArrayList<Contact>();
 		contactGroupsHashMap.put(groupType, grpList);
 	}
+	
+	@Override
 	public void addGroup(String groupType, Contact contact){
 		if(contactGroupsHashMap.containsKey(groupType)){
 			contactGroupsHashMap.get(groupType).add(contact);
@@ -63,6 +71,8 @@ public class ContactManagement implements PhoneBook {
 	public int getGroupListSize(){
 		return contactGroupsHashMap.size();
 	}
+	
+	@Override
 	public void removeGroup(String groupType){
 		if(contactGroupsHashMap.containsKey(groupType)){
 			contactGroupsHashMap.remove(groupType);
@@ -80,5 +90,41 @@ public class ContactManagement implements PhoneBook {
 	public Contact getContact(int index) {
 		Contact[] array = this.contactList.toArray(new Contact[this.contactList.size()]);
 		return array[index];
+	}
+	
+	@Override
+	public Collection<Contact> searchContactByName(String contactName) {
+		Collection<Contact> matchList=new ArrayList<Contact>();
+		for (Contact contact:contactList){
+			if(contact.toString().equalsIgnoreCase(contactName)){
+				matchList.add(contact);
+			}
+		}
+		return matchList;
+//		Contact[] contactArray = this.contactList.toArray(new Contact[this.contactList.size()]);
+//		Arrays.binarySearch(contactArray, contactName);		
+	}
+
+	@Override
+	public Collection<Contact> sortContactByName() {
+		Collection<Contact> sortedList=new ArrayList<Contact>();
+		
+		List<String> array=new ArrayList<String>();
+		for(Contact contact:contactList){
+			array.add(contact.toString());
+		}	
+		//Collections.sort(array, String.CASE_INSENSITIVE_ORDER);
+		Collections.sort(array);
+		System.out.println();
+		for(String x:array){
+			for(Contact contact:contactList){
+				if(contact.toString().equals(x)){
+					sortedList.add(contact);
+				}
+			}
+		}
+		return sortedList;
+//		Class<Contact> clazz=Contact.class;
+//		Field[] fields=clazz.getDeclaredFields();
 	}
 }

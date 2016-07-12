@@ -1,6 +1,7 @@
 package PhoneBook;
 
 import java.io.PrintStream;
+import java.util.Collection;
 
 public interface PhoneBook {
 	
@@ -12,4 +13,6 @@ public interface PhoneBook {
 	public void removeGroup(String groupType);
 	public int getTotalContacts();
 	public Contact getContact(int index);
+	public Collection<Contact> searchContactByName(String contactName);
+	public Collection<Contact> sortContactByName();
 }

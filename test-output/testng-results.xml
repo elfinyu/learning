@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="51" started-at="2016-07-10T17:20:27Z" finished-at="2016-07-10T17:20:27Z">
+  <suite name="Default suite" duration-ms="65" started-at="2016-07-12T18:57:06Z" finished-at="2016-07-12T18:57:06Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="51" started-at="2016-07-10T17:20:27Z" finished-at="2016-07-10T17:20:27Z">
+    <test name="Default test" duration-ms="65" started-at="2016-07-12T18:57:06Z" finished-at="2016-07-12T18:57:06Z">
       <class name="test.PhoneBookTest">
-        <test-method status="PASS" signature="createPhonebook()[pri:0, instance:test.PhoneBookTest@e6a366]" name="createPhonebook" is-config="true" duration-ms="16" started-at="2016-07-11T01:20:27Z" finished-at="2016-07-11T01:20:27Z">
+        <test-method status="PASS" signature="createPhonebook()[pri:0, instance:test.PhoneBookTest@173180c]" name="createPhonebook" is-config="true" duration-ms="18" started-at="2016-07-13T02:57:06Z" finished-at="2016-07-13T02:57:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createPhonebook -->
-        <test-method status="PASS" signature="testAdd()[pri:0, instance:test.PhoneBookTest@e6a366]" name="testAdd" duration-ms="7" started-at="2016-07-11T01:20:27Z" finished-at="2016-07-11T01:20:27Z">
+        <test-method status="PASS" signature="testAdd()[pri:0, instance:test.PhoneBookTest@173180c]" name="testAdd" duration-ms="7" started-at="2016-07-13T02:57:06Z" finished-at="2016-07-13T02:57:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAdd -->
-        <test-method status="PASS" signature="testGroup()[pri:0, instance:test.PhoneBookTest@e6a366]" name="testGroup" duration-ms="2" started-at="2016-07-11T01:20:27Z" finished-at="2016-07-11T01:20:27Z">
+        <test-method status="PASS" signature="testGroup()[pri:0, instance:test.PhoneBookTest@173180c]" name="testGroup" duration-ms="2" started-at="2016-07-13T02:57:06Z" finished-at="2016-07-13T02:57:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGroup -->
+        <test-method status="PASS" signature="testSearchByName()[pri:0, instance:test.PhoneBookTest@173180c]" name="testSearchByName" duration-ms="2" started-at="2016-07-13T02:57:06Z" finished-at="2016-07-13T02:57:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearchByName -->
+        <test-method status="PASS" signature="testSortByName()[pri:0, instance:test.PhoneBookTest@173180c]" name="testSortByName" duration-ms="2" started-at="2016-07-13T02:57:06Z" finished-at="2016-07-13T02:57:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSortByName -->
       </class> <!-- test.PhoneBookTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

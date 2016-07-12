@@ -56,17 +56,6 @@ public class Contact {
 		return contactEmails.keySet().toString();
 	}
 	
-	/*
-	 * Should it be setGroup?
-	 * Group should it be another class
-	 * What if group is dynamic, meaning the user can create more groups?
-	 * 
-	 */
-	public void addContactToGroup(){
-		
-	}
-	
-	
 	public void setTitle(String title){
 		this.title=title;
 	}
