@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ContactManagement implements PhoneBook {
 
-	final Collection<Contact> contactList;
+	final protected Collection<Contact> contactList;
 	final HashMap<String,Collection<Contact>> contactGroupsHashMap;
 	public ContactManagement(){
 		this.contactList = new ArrayList<Contact>();
