@@ -1,4 +1,4 @@
-package test;
+package PhoneBook;
 
 import PhoneBook.*;
 
