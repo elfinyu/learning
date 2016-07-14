@@ -1,16 +1,16 @@
 package PhoneBook;
 
 import java.io.PrintStream;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 
 public class ContactManagement implements PhoneBook {
 
+	public static final Comparator CONTACT_NAME_ASCENDING_COMPARATOR = new NameAscending();
+	
 	final protected Collection<Contact> contactList;
 	final HashMap<String,Collection<Contact>> contactGroupsHashMap;
 	public ContactManagement(){
@@ -106,25 +106,18 @@ public class ContactManagement implements PhoneBook {
 	}
 
 	@Override
-	public Collection<Contact> sortContactByName() {
-		Collection<Contact> sortedList=new ArrayList<Contact>();
-		
-		List<String> array=new ArrayList<String>();
-		for(Contact contact:contactList){
-			array.add(contact.toString());
-		}	
-		//Collections.sort(array, String.CASE_INSENSITIVE_ORDER);
-		Collections.sort(array);
-		System.out.println();
-		for(String x:array){
-			for(Contact contact:contactList){
-				if(contact.toString().equals(x)){
-					sortedList.add(contact);
-				}
-			}
+	public void sortPhoneBook(Comparator<Contact> comparator){
+		ArrayList<Contact> list = (ArrayList<Contact>) this.contactList;
+		Collections.sort(list, comparator);
+	}
+	
+	
+	private static class NameAscending implements Comparator<Contact>{
+
+		@Override
+		public int compare(Contact o1, Contact o2) {
+			return o1.getName().compareTo(o2.getName());
 		}
-		return sortedList;
-//		Class<Contact> clazz=Contact.class;
-//		Field[] fields=clazz.getDeclaredFields();
+		
 	}
 }

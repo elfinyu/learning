@@ -1,7 +1,5 @@
 package PhoneBook;
 
-import PhoneBook.*;
-
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -10,6 +8,7 @@ public class PhoneBookTest {
 	
 	ContactManagement contactManagement;
 	Contact contact1,contact2,contact3,contact4,contact5,contact6;
+	
 	@BeforeTest
 	public void createPhonebook(){
 		contact1 = new Contact("YuDan");
@@ -68,9 +67,15 @@ public class PhoneBookTest {
 		System.out.println(contactManagement.searchContactByName("yudan"));
 		
 	}
+	
 	@Test
 	public void testSortByName(){
-		System.out.println(contactManagement.sortContactByName());
+		System.out.println("Before sort");
+		System.out.println(contactManagement.getContactList());
+		contactManagement.sortPhoneBook(ContactManagement.CONTACT_NAME_ASCENDING_COMPARATOR);
+		System.out.println("After sort");
+		System.out.println(contactManagement.getContactList());
+		
 	}
 	
 }

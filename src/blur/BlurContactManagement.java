@@ -15,7 +15,8 @@ public class BlurContactManagement extends ContactManagement {
 	public static final Comparator CONTACT_NAME_COMPARATOR = new ContactNameComparator();
 	public static final Comparator CONTACT_NAME_COMPARATOR_USING_STRING = new ContactNameComparatorUsingStringComparator();
 	public static final Comparator CONTACT_NAME_COMPARATOR_ALPHABETICAL = new AlphabeticalComparator();
-	@Override
+	
+	
 	public Collection<Contact> sortContactByName() {
 		List<Contact> copy = null;
 		if(this.contactList instanceof List){
@@ -61,6 +62,7 @@ private static class AlphabeticalComparator implements Comparator<Contact> {
 		 Collator myCollator = Collator.getInstance();
 		 if( myCollator.compare(source,target) < 0 ){
 			 return -1;
+			 
 		 }else if( myCollator.compare(source,target) == 0 ){
 			 return 0;
 		 }else{
@@ -68,6 +70,7 @@ private static class AlphabeticalComparator implements Comparator<Contact> {
 		 }
 	 }
 
+	
 }
 	
 }
