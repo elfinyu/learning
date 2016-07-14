@@ -47,5 +47,6 @@ public class myTest {
 	@Test
 	public void test() {
 		System.out.println(contactManagement.sortContactByName());
+		
 	}
 }

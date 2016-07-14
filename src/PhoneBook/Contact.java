@@ -1,10 +1,12 @@
 package PhoneBook;
 
+import java.text.CollationKey;
+import java.text.Collator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class Contact {
+public class Contact extends Collator {
 
 	private String name;
 	private String company;
@@ -72,5 +74,23 @@ public class Contact {
 
 	public String toString(){
 		return this.name;
+	}
+
+	@Override
+	public int compare(String source, String target) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public CollationKey getCollationKey(String source) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

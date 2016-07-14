@@ -1,5 +1,6 @@
 package blur;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -13,7 +14,7 @@ public class BlurContactManagement extends ContactManagement {
 
 	public static final Comparator CONTACT_NAME_COMPARATOR = new ContactNameComparator();
 	public static final Comparator CONTACT_NAME_COMPARATOR_USING_STRING = new ContactNameComparatorUsingStringComparator();
-	
+	public static final Comparator CONTACT_NAME_COMPARATOR_ALPHABETICAL = new AlphabeticalComparator();
 	@Override
 	public Collection<Contact> sortContactByName() {
 		List<Contact> copy = null;
@@ -22,7 +23,7 @@ public class BlurContactManagement extends ContactManagement {
 			copy =new ArrayList<Contact>(mycastLst);
 			
 			System.out.println(copy);
-			Collections.sort(copy, CONTACT_NAME_COMPARATOR);
+			Collections.sort(copy, CONTACT_NAME_COMPARATOR_ALPHABETICAL);
 			return copy;
 		}
 		
@@ -46,6 +47,27 @@ private static class ContactNameComparatorUsingStringComparator implements Compa
 		return String.CASE_INSENSITIVE_ORDER.compare(o1.getName(), o2.getName());
 	}
 	
+}
+private static class AlphabeticalComparator implements Comparator<Contact> {
+
+	@Override
+	public int compare(Contact o1, Contact o2) {
+		// TODO Auto-generated method stub
+		return compare(o1.getName(),o2.getName());
+	}
+	
+	public int compare(String source, String target) {
+		// TODO Auto-generated method stub
+		 Collator myCollator = Collator.getInstance();
+		 if( myCollator.compare(source,target) < 0 ){
+			 return -1;
+		 }else if( myCollator.compare(source,target) == 0 ){
+			 return 0;
+		 }else{
+			 return 1;
+		 }
+	 }
+
 }
 	
 }
