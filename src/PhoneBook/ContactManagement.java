@@ -4,7 +4,6 @@ import java.io.PrintStream;
 import java.lang.reflect.Field;
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,6 +14,8 @@ import java.util.List;
 
 public class ContactManagement implements PhoneBook {
 
+	public static final Comparator CONTACT_NAME_ASCENDING_COMPARATOR = new NameAscending();
+	
 	final protected Collection<Contact> contactList;
 	final HashMap<String,Collection<Contact>> contactGroupsHashMap;
 	public static final Comparator CONTACT_NAME_COMPARATOR_ALPHABETICAL = new AlphabeticalComparator();
@@ -110,15 +111,29 @@ public class ContactManagement implements PhoneBook {
 //		Arrays.binarySearch(contactArray, contactName);		
 	}
 
-	@Override
 	public Collection<Contact> sortContactByName() {
 
 		List<Contact> sortedList=(List)this.contactList ;
 		System.out.println(sortedList);
 		Collections.sort(sortedList, CONTACT_NAME_COMPARATOR_ALPHABETICAL);
-		return sortedList;
+		return sortedList;		
 //		Class<Contact> clazz=Contact.class;
 //		Field[] fields=clazz.getDeclaredFields();
+	}
+	
+	public void sortPhoneBook(Comparator<Contact> comparator){
+		ArrayList<Contact> list = (ArrayList<Contact>) this.contactList;
+		Collections.sort(list, comparator);
+	}
+	
+	
+	private static class NameAscending implements Comparator<Contact>{
+
+		@Override
+		public int compare(Contact o1, Contact o2) {
+			return o1.getName().compareTo(o2.getName());
+		}
+		
 	}
 	
 	private static class AlphabeticalComparator implements Comparator<Contact> {
