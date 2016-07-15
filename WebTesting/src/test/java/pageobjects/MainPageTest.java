@@ -1,23 +1,21 @@
-package page;
+package pageobjects;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
-
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import core.Factory;
 import page.MainPage;
 
 public class MainPageTest {
 	
-	static WebDriver driver;
-	static MainPage main;
+	WebDriver driver;
+	MainPage main;
 	
 	@BeforeClass
-	public static void init(){
+	public void init(){
 		System.setProperty("webdriver.chrome.driver", "D:\\developmentStack\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		main = Factory.getPage(MainPage.class, driver);
@@ -31,7 +29,7 @@ public class MainPageTest {
 	}
 	
 	@AfterClass
-	public static void destroy(){
+	public  void destroy(){
 		driver.quit();
 	}
 
