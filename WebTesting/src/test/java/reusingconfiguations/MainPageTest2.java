@@ -11,7 +11,7 @@ import configuration.TestConfiguration;
 import page.MainPage;
 
 @Guice(modules = TestConfiguration.class)
-public class MainPageTest {
+public class MainPageTest2 {
 	
 	@Inject
 	WebDriver driver;
@@ -23,15 +23,9 @@ public class MainPageTest {
 	public void test(){
 		main.launch();
 		main.verfiySearchExist();
-		main.serachTitle("Hulk");
+		main.serachTitle("Seomthing else");
 	}
 	
-	@Test
-	public void test2(){
-		main.launch();
-		main.verfiySearchExist();
-		main.serachTitle("Iron Man");
-	}
 	
 
 }
