@@ -19,13 +19,11 @@ public class MainPageTest {
 	@Inject
 	MainPage main;
 	
-	
 	@Test
 	public void test(){
 		main.launch();
 		main.verfiySearchExist();
 		main.serachTitle("Hulk");
-		
 	}
 	
 	@AfterClass
