@@ -25,7 +25,7 @@ public class MainPageTestWithoutFactory {
 	public void test(){
 		main.launch();
 		main.verfiySearchExist();
-		main.serachTitle("Hulk");
+		main.searchTitle("Hulk");
 	}
 	
 	@AfterClass

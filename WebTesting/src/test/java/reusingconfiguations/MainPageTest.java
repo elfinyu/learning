@@ -23,14 +23,14 @@ public class MainPageTest {
 	public void test(){
 		main.launch();
 		main.verfiySearchExist();
-		main.serachTitle("Hulk");
+		main.searchTitle("Hulk");
 	}
 	
 	@Test
 	public void test2(){
 		main.launch();
 		main.verfiySearchExist();
-		main.serachTitle("Iron Man");
+		main.searchTitle("Iron Man");
 	}
 	
 

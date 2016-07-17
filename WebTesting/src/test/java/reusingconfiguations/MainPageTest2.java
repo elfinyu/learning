@@ -23,7 +23,7 @@ public class MainPageTest2 {
 	public void test(){
 		main.launch();
 		main.verfiySearchExist();
-		main.serachTitle("Seomthing else");
+		main.searchTitle("Seomthing else");
 	}
 	
 	
