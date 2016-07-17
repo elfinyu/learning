@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import core.Factory;
+import page.LinkCheckerUtils;
 import page.MainPage;
 
 public class MainPageTest {
@@ -31,9 +32,12 @@ public class MainPageTest {
 		String expected="Find - IMDb";
 		Assert.assertEquals(actual, expected);
 		main.getSearchedResult();
-		main.clickLink("Hulk (2003)");
+		
 		System.out.println(main.getCurrentPageTitle());
 		//main.checkAllLinks();
+		
+		
+		LinkCheckerUtils.checkAllLinks(main);
 	}
 	
 //	@AfterClass
