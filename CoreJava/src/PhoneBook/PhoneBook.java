@@ -4,6 +4,8 @@ import java.io.PrintStream;
 import java.util.Collection;
 import java.util.Comparator;
 
+import PhoneBook.search.SearchCondition;
+
 public interface PhoneBook {
 	
 	public void addContact(Contact contact);
@@ -17,4 +19,5 @@ public interface PhoneBook {
 	
 	public Collection<Contact> searchContactByName(String contactName);
 	public void sortPhoneBook(Comparator<Contact> comparator);
+	Collection<Contact> searchContact(SearchCondition condition, String value);
 }

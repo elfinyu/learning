@@ -1,7 +1,6 @@
 package PhoneBook;
 
 import java.io.PrintStream;
-import java.lang.reflect.Field;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +8,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+
+import PhoneBook.search.SearchCondition;
 
 //import blur.BlurContactManagement.AlphabeticalComparator;
 
@@ -46,7 +47,7 @@ public class ContactManagement implements PhoneBook {
 		return contactList.toString();
 	}
 	public String getContactNumbers(Contact contact){
-		return contact.getPhoneNumbers();
+		return contact.getPhoneNumbersString();
 	}
 	public String getContactEmails(Contact contact){
 		return contact.getEmails();
@@ -110,6 +111,18 @@ public class ContactManagement implements PhoneBook {
 		return matchList;
 //		Contact[] contactArray = this.contactList.toArray(new Contact[this.contactList.size()]);
 //		Arrays.binarySearch(contactArray, contactName);		
+	}
+	
+	
+	@Override
+	public Collection<Contact> searchContact(SearchCondition condition, String value){
+		Collection<Contact> matchList=new ArrayList<Contact>();
+		for (Contact contact:contactList){
+			if(condition.matches(contact, value)){
+				matchList.add(contact);
+			}
+		}
+		return matchList;
 	}
 
 	public Collection<Contact> sortContactByName() {

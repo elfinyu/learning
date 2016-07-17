@@ -4,6 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import PhoneBook.search.SearchByContactNo;
+import PhoneBook.search.SearchByName;
+
 public class PhoneBookTest {
 	
 	ContactManagement contactManagement;
@@ -64,10 +67,13 @@ public class PhoneBookTest {
 	
 	@Test
 	public void testSearchByName(){
-		System.out.println(contactManagement.searchContactByName("yudan"));
-		
+		System.out.println(contactManagement.searchContact(new SearchByName(), ("YuDan")));
 	}
-	
+
+	@Test
+	public void testSearchByContact(){
+		System.out.println(contactManagement.searchContact(new SearchByContactNo(), "1234"));
+	}
 	@Test
 	public void testSortByName(){
 		System.out.println("Before sort");

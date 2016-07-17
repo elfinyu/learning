@@ -44,10 +44,15 @@ public class Contact extends Collator {
 		}
 	}
 
-	public String getPhoneNumbers(){
+	public String getPhoneNumbersString(){
 		Set<String> contactNoSet=contactNumbers.keySet();
 		return contactNoSet.toString();
-	}		
+	}
+	
+	public Map<String, ContactNumber> getPhoneNumbers(){
+		return this.contactNumbers;
+	}
+	
 	public void showDetailedPhoneNumbers(){
 		Set<String> contactNoSet=contactNumbers.keySet();
 		for(String contactNo:contactNoSet){
