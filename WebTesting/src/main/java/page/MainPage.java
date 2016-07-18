@@ -22,8 +22,7 @@ public class MainPage extends PageObject {
 	WebElement searchBar;
 	@FindBy(id="navbar-submit-button")
 	WebElement submitButton;
-	@FindBy(tagName="tr")
-	List<WebElement> resultRows;
+
 	
 	@FindBy(xpath="(//*[@class='result_text']/a)[1]")
     WebElement link;
@@ -47,12 +46,7 @@ public class MainPage extends PageObject {
 		return currTitle;
 	}
 	
-	public void getSearchedResult(){
-		System.out.println("Result rows: "+ resultRows.size());
-		for(WebElement result:resultRows){
-			System.out.println(result.getText());
-		}
-	}
+
 
 	
 	

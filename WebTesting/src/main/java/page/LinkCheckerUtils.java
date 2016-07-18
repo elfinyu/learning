@@ -20,13 +20,20 @@ public class LinkCheckerUtils{
 		}
 	}
 
-	
-	public static void clickLink(String linkLabel,PageObject obj) {
-		WebElement findElement = obj.getDriver().findElement(By.linkText(linkLabel));
-		findElement.click();
+	public static int getAllLinksCount(PageObject obj){
+		WebDriver driver=obj.getDriver();
+		List<WebElement> findElements=driver.findElements(By.tagName("a"));
+		return findElements.size();	
 	}
 	
-	
+	public static void clickLink(String linkLabel,PageObject obj) {
+		//WebElement findElement = obj.getDriver().findElement(By.linkText(linkLabel));
+		String xpathExpression="//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a";
+		WebElement findElement = obj.getDriver().findElement(By.xpath(xpathExpression));
+		System.out.println(findElement.toString());
+		findElement.click();
+	}
+		
 	
 	private static void verifyLinkActive(String strURL){
 		try {

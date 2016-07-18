@@ -21,7 +21,6 @@ public class MainPageTest {
 	}
 	
 	@Test
-	
 	public void test(){
 //		navbar-query
 		driver.get("http://www.imdb.com/");
