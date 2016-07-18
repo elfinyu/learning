@@ -59,8 +59,11 @@ public class Contact extends Collator {
 			System.out.println("ConactNo:" + contactNo + " Type:" + contactNumbers.get(contactNo));
 		}
 	}	
-	public String getEmails(){
+	public String getEmailsString(){
 		return contactEmails.keySet().toString();
+	}
+	public Map<String,ContactEmail> getEmails(){
+		return this.contactEmails;
 	}
 	
 	public void setTitle(String title){

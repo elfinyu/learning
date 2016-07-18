@@ -50,7 +50,7 @@ public class ContactManagement implements PhoneBook {
 		return contact.getPhoneNumbersString();
 	}
 	public String getContactEmails(Contact contact){
-		return contact.getEmails();
+		return contact.getEmailsString();
 	}
 
 	@Override
@@ -113,7 +113,6 @@ public class ContactManagement implements PhoneBook {
 //		Arrays.binarySearch(contactArray, contactName);		
 	}
 	
-	
 	@Override
 	public Collection<Contact> searchContact(SearchCondition condition, String value){
 		Collection<Contact> matchList=new ArrayList<Contact>();
@@ -139,7 +138,6 @@ public class ContactManagement implements PhoneBook {
 		ArrayList<Contact> list = (ArrayList<Contact>) this.contactList;
 		Collections.sort(list, comparator);
 	}
-	
 	
 	private static class NameAscending implements Comparator<Contact>{
 

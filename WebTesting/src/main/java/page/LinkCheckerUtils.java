@@ -11,16 +11,12 @@ import org.openqa.selenium.WebElement;
 
 public class LinkCheckerUtils{
 
-	
-	
-	
 	public static void checkAllLinks(PageObject obj) {
 		WebDriver driver = obj.getDriver();
 		List<WebElement> findElements = driver.findElements(By.tagName("a"));
 		for(WebElement link:findElements){
 			String url=link.getAttribute("href");
 			verifyLinkActive(url);
-			
 		}
 	}
 
