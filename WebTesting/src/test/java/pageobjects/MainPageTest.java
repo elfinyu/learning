@@ -40,7 +40,7 @@ public class MainPageTest {
 //		System.out.println("Change page object to ResultPage");
 //		result.getSearchedResult();
 		System.out.println("Links in result page: "+LinkCheckerUtils.getAllLinksCount(result));
-		LinkCheckerUtils.clickLink("Hulk (2003)", result);
+		LinkCheckerUtils.clickLink("Hulk", result);
 		//LinkCheckerUtils.checkAllLinks(main);
 	}
 	

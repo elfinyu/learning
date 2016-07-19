@@ -27,9 +27,9 @@ public class LinkCheckerUtils{
 	}
 	
 	public static void clickLink(String linkLabel,PageObject obj) {
-		//WebElement findElement = obj.getDriver().findElement(By.linkText(linkLabel));
-		String xpathExpression="//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a";
-		WebElement findElement = obj.getDriver().findElement(By.xpath(xpathExpression));
+		WebElement findElement = obj.getDriver().findElement(By.linkText(linkLabel));
+		//String xpathExpression="//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a";
+		//We/bElement findElement = obj.getDriver().findElement(By.xpath(xpathExpression));
 		System.out.println(findElement.toString());
 		findElement.click();
 	}
