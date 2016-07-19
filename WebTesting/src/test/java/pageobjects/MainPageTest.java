@@ -44,10 +44,21 @@ public class MainPageTest {
 		//LinkCheckerUtils.checkAllLinks(main);
 	}
 	
-//	@AfterClass
-//	public void destroy(){
-//		driver.quit();
-//		//driver.close();
-//	}
+	@Test
+	public void myTest(){
+		main.launch();
+		main.verfiySearchExist();
+		main.searchTitle("Hulk");
+		Assert.assertEquals(result.getTitleResultsCount("Hulk"), 10,"Should have 10 results");
+		Assert.assertEquals(result.getTitleResultsCountOfLinks("Hulk"), 10,"Should have 10 results");
+		Assert.assertEquals(result.getTitleResultsCountOfLinksUsingXpath("Hulk"), 10,"Should have 10 results");
+		
+	}
+	
+	@AfterClass
+	public void destroy(){
+		driver.quit();
+		//driver.close();
+	}
 
 }
