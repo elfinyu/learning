@@ -2,6 +2,11 @@ package page;
 
 import org.openqa.selenium.WebDriver;
 
+/**
+ * To represent that an object is a Html Page 
+ * @author yudan
+ *
+ */
 public abstract class PageObject extends LinkCheckerUtils {
 	WebDriver driver;
 	

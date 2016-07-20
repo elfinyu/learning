@@ -1,0 +1,75 @@
+<div id="navbar-suggestionsearch" style="left: 140px; top: 38px; width: 534px; display: none;">
+	<a href="/title/tt0800080/?ref_=nv_sr_1" class="poster highlighted">
+		<img
+			src="http://ia.media-imdb.com/images/M/MV5BMTUyNzk3MjA1OF5BMl5BanBnXkFtZTcwMTE1Njg2MQ@@._V1._SX40_CR0,0,40,54_.jpg"
+			style="background:url('http://i.media-imdb.com/images/mobile/film-40x54.png')"
+			width="40" height="54"/>
+			<div class="suggestionlabel">
+				<span class="title">The Incredible Hulk</span>
+				<span class="extra">(2008)</span>
+				<div class="detail">Edward Norton, Liv Tyler</div>
+			</div>
+	</a>
+	<a href="/title/tt0286716/?ref_=nv_sr_2" class="poster">
+		<img
+			src="http://ia.media-imdb.com/images/M/MV5BMTQxNzUxNTE4Nl5BMl5BanBnXkFtZTYwMjcyNTk5._V1._SX40_CR0,0,40,54_.jpg"
+			style="background:url('http://i.media-imdb.com/images/mobile/film-40x54.png')"
+			width="40" height="54"/>
+			<div class="suggestionlabel">
+				<span class="title">Hulk</span>
+				<span class="extra">(2003)</span>
+				<div class="detail">Eric Bana, Jennifer Connelly</div>
+			</div>
+	</a>
+	<a href="/title/tt0077031/?ref_=nv_sr_3" class="poster">
+		<img
+			src="http://ia.media-imdb.com/images/M/MV5BMTI3MzMwODM4N15BMl5BanBnXkFtZTcwMDM2Njc0MQ@@._V1._SX40_CR0,0,40,54_.jpg"
+			style="background:url('http://i.media-imdb.com/images/mobile/film-40x54.png')"
+			width="40" height="54"/>
+			<div class="suggestionlabel">
+				<span class="title">The Incredible Hulk</span>
+				<span class="extra">(1978)</span>
+				<div class="detail">Bill Bixby, Lou Ferrigno</div>
+			</div>
+	</a>
+	<a href="/name/nm0001356/?ref_=nv_sr_4" class="poster">
+		<img
+			src="http://ia.media-imdb.com/images/M/MV5BMTA1ODM2MzQyMjJeQTJeQWpwZ15BbWU2MDEzODAzNQ@@._V1._SX40_CR0,0,40,54_.jpg"
+			style="background:url('http://i.media-imdb.com/images/mobile/people-40x54.png')"
+			width="40" height="54"/>
+			<div class="suggestionlabel">
+				<span class="title">Hulk Hogan</span>
+				<div class="detail">Actor, Rocky III (1982)</div>
+			</div>
+	</a>
+	<a href="/title/tt1483025/?ref_=nv_sr_5" class="poster">
+		<img
+			src="http://ia.media-imdb.com/images/M/MV5BMTgwMDU1NTQ2MF5BMl5BanBnXkFtZTcwNjI0ODkwNQ@@._V1._SX40_CR0,0,40,54_.jpg"
+			style="background:url('http://i.media-imdb.com/images/mobile/film-40x54.png')"
+			width="40" height="54"/>
+			<div class="suggestionlabel">
+				<span class="title">Planet Hulk</span>
+				<span class="extra">(2010)</span>
+				<div class="detail">Rick D. Wasserman, Lisa Ann Beley</div>
+			</div>
+	</a>
+	<a href="/title/tt2455514/?ref_=nv_sr_6" class="poster">
+		<img
+			src="http://ia.media-imdb.com/images/M/MV5BMTg1MzIxMzM4Nl5BMl5BanBnXkFtZTcwMTg3Mzc5OQ@@._V1._SX40_CR0,0,40,54_.jpg"
+			style="background:url('http://i.media-imdb.com/images/mobile/film-40x54.png')"
+			width="40" height="54"/>
+			<div class="suggestionlabel">
+				<span class="title">Hulk and the Agents of S.M.A.S.H.</span>
+				<span class="extra">(2013)</span>
+				<div class="detail">Fred Tatasciore, Clancy Brown</div>
+			</div>
+	</a>
+	<a class="moreResults" href="/find?s=all&amp;q=hulk&amp;ref_=nv_sr_sm">
+		<span class="message">
+			See all results for "
+			<span class="query">hulk</span>
+			"
+		</span>
+		<span class="raquo"></span>
+	</a>
+</div>

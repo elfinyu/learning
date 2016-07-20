@@ -1,4 +1,4 @@
-package page;
+package page.search;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +9,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ResultPage extends PageObject {
+import page.PageObject;
 
-	public ResultPage(WebDriver driver) {
+public class TitleResultsPanel extends PageObject {
+
+	public TitleResultsPanel(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -27,18 +28,6 @@ public class ResultPage extends PageObject {
 	 */
 	By results_text_locator = By.xpath(".//td[@class='result_text']");
 	By results_text_locator_links = By.xpath(".//td[@class='result_text']/a");
-	
-	@FindBy(tagName="tr")
-	List<WebElement> resultRows;
-	
-	public void getSearchedResult(){
-		System.out.println("Result rows: "+ resultRows.size());
-		for(WebElement result:resultRows){
-			System.out.println(result.getText());
-			
-		}
-		
-	}
 	
 	public int getTitleResultsCount(String search){
 		List<WebElement> findElements = titleResultsDiv.findElements(results_text_locator);
@@ -89,4 +78,18 @@ public class ResultPage extends PageObject {
 	}
 	
 	
+	public void clickOnResult(String search){
+		List<WebElement> findElements = titleResultsDiv.findElements(results_text_locator);
+		WebElement foundElement=null;
+		for(WebElement element : findElements){
+			if(element.getText().equalsIgnoreCase(search)){
+				System.out.println(element.getText());
+				foundElement = element;
+			}
+		}
+		if(foundElement != null){
+			foundElement.findElement(By.tagName("a")).click();
+		}
+	}
+
 }

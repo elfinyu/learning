@@ -1,5 +1,7 @@
 package pageobjects;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -10,7 +12,7 @@ import org.testng.annotations.Test;
 import core.Factory;
 import page.LinkCheckerUtils;
 import page.MainPage;
-import page.ResultPage;
+import page.search.ResultPage;
 
 public class MainPageTest {
 	
@@ -22,6 +24,7 @@ public class MainPageTest {
 	public void init(){
 		System.setProperty("webdriver.chrome.driver", "D:\\developmentStack\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		main = Factory.getPage(MainPage.class, driver);
 		result = Factory.getPage(ResultPage.class, driver);
 	}
@@ -41,11 +44,12 @@ public class MainPageTest {
 //		result.getSearchedResult();
 		System.out.println("Links in result page: "+LinkCheckerUtils.getAllLinksCount(result));
 		LinkCheckerUtils.clickLink("Hulk", result);
-		//LinkCheckerUtils.checkAllLinks(main);
+
 	}
 	
 	@Test
 	public void myTest(){
+	
 		main.launch();
 		main.verfiySearchExist();
 		main.searchTitle("Hulk");
@@ -53,6 +57,17 @@ public class MainPageTest {
 		Assert.assertEquals(result.getTitleResultsCountOfLinks("Hulk"), 10,"Should have 10 results");
 		Assert.assertEquals(result.getTitleResultsCountOfLinksUsingXpath("Hulk"), 10,"Should have 10 results");
 		
+	}
+	
+	@Test
+	public void testLinkClicking(){
+		main.launch();
+		main.verfiySearchExist();
+		main.searchTitle("Hulk");
+		int x = result.getTitleResultsCountOfLinks("Hulk");
+		System.out.println("Links(xpath:td) in result page: "+ x);
+		x = result.getTitleResultsCountOfLinksUsingXpath("Hulk");
+		System.out.println("Links(xpath:a) in result page: "+ x);
 	}
 	
 	@AfterClass
