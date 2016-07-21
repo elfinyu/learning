@@ -11,19 +11,19 @@ import org.testng.annotations.Test;
 
 import core.Factory;
 import page.MainPage;
-import page.movies.MovieDetailTitleBar;
+import page.movies.MovieDetaiQuickLinksBar;
 import page.movies.MoviesDetailPage;
 import page.search.ResultPage;
 import page.search.TitleResultsPanel;
 
-public class SearchTest {
+public class QuickLinksBarTest {
 	
 	WebDriver driver;
 	MainPage main;
 	ResultPage resultPage;
-	//TitleResultsPanel titleResults;
+	TitleResultsPanel titleResults;
 	MoviesDetailPage moviesDetailPage;
-	//MovieDetailTitleBar titleBar;
+	//MovieDetaiQuickLinksBar quickLinksBar;
 	
 	@BeforeClass
 	public void init(){
@@ -32,22 +32,21 @@ public class SearchTest {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		main = Factory.getPage(MainPage.class, driver);
 		resultPage = Factory.getPage(ResultPage.class, driver);
-		//titleResults = Factory.getPage(TitleResultsPanel.class, driver);
+		titleResults = Factory.getPage(TitleResultsPanel.class, driver);
 		moviesDetailPage=Factory.getPage(MoviesDetailPage.class, driver);
-		//titleBar=Factory.getPage(MovieDetailTitleBar.class, driver);
+		//quickLinksBar=Factory.getPage(MovieDetaiQuickLinksBar.class, driver);
 	}
 	
-
-	
 	@Test
-	public void searchTitleResult(){
+	public void clickQuickLinksBarTest(){
+	
 		main.launch();
 		main.verfiySearchExist();
 		main.searchTitle("Hulk");
-		resultPage.titleResults.clickTitleLink("Hulk (2003)");
-		Assert.assertEquals(moviesDetailPage.titleBar.getMovieTitle(),"Hulk (2003)");
-		Assert.assertEquals(moviesDetailPage.titleBar.getMovieDuration(), "2h 18min");
+		titleResults.clickTitleLink("Hulk (2003)");
+		moviesDetailPage.quickLinksBar.clickLink("TRIVIA");
 	}
+
 	
 	@AfterClass
 	public void destroy(){
@@ -60,5 +59,4 @@ public class SearchTest {
 		driver.quit();
 		//driver.close();
 	}
-
 }

@@ -7,12 +7,15 @@ import page.PageObject;
 
 public class ResultPage extends PageObject {
 
-	TitleResultsPanel titleResults;
+	public TitleResultsPanel titleResults;
+	public NameResultsPanel nameResults;
 
 	public ResultPage(WebDriver driver) {
 		super(driver);
 		this.titleResults = new TitleResultsPanel(driver);
 		PageFactory.initElements(driver, titleResults);
+		this.nameResults = new NameResultsPanel(driver);
+		PageFactory.initElements(driver, nameResults);
 	}
 
 	public int getTitleResultsCount(String search) {
@@ -26,5 +29,5 @@ public class ResultPage extends PageObject {
 	public int getTitleResultsCountOfLinksUsingXpath(String search) {
 		return titleResults.getTitleResultsCountOfLinksUsingXpath(search);
 	}
-
+	
 }

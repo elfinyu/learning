@@ -27,13 +27,36 @@ public class LinkCheckerUtils{
 	}
 	
 	public static void clickLink(String linkLabel,PageObject obj) {
-		WebElement findElement = obj.getDriver().findElement(By.linkText(linkLabel));
+
 		//String xpathExpression="//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a";
-		//We/bElement findElement = obj.getDriver().findElement(By.xpath(xpathExpression));
-		System.out.println(findElement.toString());
-		findElement.click();
+		//WebElement findElement = obj.getDriver().findElement(By.xpath(xpathExpression));
+		WebElement findElement;
+		findElement=getLinkByTagA(linkLabel,obj);
+		if(findElement==null){
+			System.out.println("Targeted link not found, please try other findElement approach!");
+		}
+		if(findElement!=null){
+			findElement.click();
+		}
 	}
 		
+	public static WebElement getLinkByTagA(String linkLabel,PageObject obj){
+		List<WebElement> findElements = getLinksByTag("a", obj);
+		WebElement foundElement=null;
+		for(WebElement currElement:findElements){
+			if(currElement.getText().equalsIgnoreCase(linkLabel)){
+				foundElement=currElement;
+			}
+		}
+		if(foundElement!=null){
+			return foundElement;
+		}
+		return null;
+	}
+
+	public static List<WebElement> getLinksByTag(String strTag,PageObject obj){
+		return obj.getDriver().findElements(By.tagName(strTag));
+	}
 	
 	private static void verifyLinkActive(String strURL){
 		try {

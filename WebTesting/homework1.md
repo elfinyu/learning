@@ -2,7 +2,7 @@
 
 
   - Write more test cases for testing Detailed Movie Results Page
-  - Write more test cases for seach by actor
+  - Write more test cases for search by actor
   - Write test case for drop down when searching
         
 

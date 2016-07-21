@@ -16,7 +16,7 @@ import page.movies.MoviesDetailPage;
 import page.search.ResultPage;
 import page.search.TitleResultsPanel;
 
-public class SearchTest {
+public class SearchTitleTest {
 	
 	WebDriver driver;
 	MainPage main;
@@ -36,8 +36,6 @@ public class SearchTest {
 		moviesDetailPage=Factory.getPage(MoviesDetailPage.class, driver);
 		//titleBar=Factory.getPage(MovieDetailTitleBar.class, driver);
 	}
-	
-
 	
 	@Test
 	public void searchTitleResult(){

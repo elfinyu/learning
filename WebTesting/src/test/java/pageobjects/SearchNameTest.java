@@ -11,19 +11,14 @@ import org.testng.annotations.Test;
 
 import core.Factory;
 import page.MainPage;
-import page.movies.MovieDetailTitleBar;
 import page.movies.MoviesDetailPage;
 import page.search.ResultPage;
-import page.search.TitleResultsPanel;
 
-public class SearchTest {
-	
+public class SearchNameTest {
 	WebDriver driver;
 	MainPage main;
 	ResultPage resultPage;
-	//TitleResultsPanel titleResults;
 	MoviesDetailPage moviesDetailPage;
-	//MovieDetailTitleBar titleBar;
 	
 	@BeforeClass
 	public void init(){
@@ -32,21 +27,17 @@ public class SearchTest {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		main = Factory.getPage(MainPage.class, driver);
 		resultPage = Factory.getPage(ResultPage.class, driver);
-		//titleResults = Factory.getPage(TitleResultsPanel.class, driver);
 		moviesDetailPage=Factory.getPage(MoviesDetailPage.class, driver);
-		//titleBar=Factory.getPage(MovieDetailTitleBar.class, driver);
 	}
 	
-
-	
 	@Test
-	public void searchTitleResult(){
+	public void searchNameResult(){
 		main.launch();
 		main.verfiySearchExist();
 		main.searchTitle("Hulk");
-		resultPage.titleResults.clickTitleLink("Hulk (2003)");
-		Assert.assertEquals(moviesDetailPage.titleBar.getMovieTitle(),"Hulk (2003)");
-		Assert.assertEquals(moviesDetailPage.titleBar.getMovieDuration(), "2h 18min");
+		System.out.println("result rows: "+resultPage.nameResults.getNameResultsCount());
+		System.out.println("result links: "+resultPage.nameResults.getNameResultsLinksCount());
+		resultPage.nameResults.clickNameLink("Hulk Hogan (Actor, Rocky III (1982))");
 	}
 	
 	@AfterClass
@@ -60,5 +51,4 @@ public class SearchTest {
 		driver.quit();
 		//driver.close();
 	}
-
 }
