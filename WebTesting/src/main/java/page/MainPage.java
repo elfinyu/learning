@@ -9,17 +9,20 @@ import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 
 public class MainPage extends PageObject {
-
+	
+	public DropDownSuggestionSearch dropdownSuggestion;
 	public MainPage(WebDriver driver) {
 		super(driver);
-		
+		dropdownSuggestion = new DropDownSuggestionSearch(driver);
+		PageFactory.initElements(driver,dropdownSuggestion);		
 	}
 
 	@FindBy(id="navbar-query")
-	WebElement searchBar;
+	public WebElement searchBar;
 	@FindBy(id="navbar-submit-button")
 	WebElement submitButton;
 
@@ -45,13 +48,5 @@ public class MainPage extends PageObject {
 		String currTitle = getDriver().getTitle();
 		return currTitle;
 	}
-	
-
-
-	
-	
-	
-	
-	
-	
+		
 }

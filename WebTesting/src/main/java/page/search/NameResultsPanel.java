@@ -37,6 +37,6 @@ public class NameResultsPanel extends PageObject {
 	}
 	
 	public void clickNameLink(String strLinkLabel){
-		this.clickOnLink(nameResultsDiv, results_text_locator, strLinkLabel);
+		this.clickOnLinkOfEqualString(nameResultsDiv, results_text_locator, strLinkLabel);
 	}
 }

@@ -31,4 +31,7 @@ public class MovieDetaiQuickLinksBar extends PageObject{
 		}
 	}
 	
+	public void clickQuickLink(String linkLabel){
+		this.clickOnLinkOfEqualString(linksBarList, linkLabel);
+	}
 }

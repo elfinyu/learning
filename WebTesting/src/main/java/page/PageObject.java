@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * To represent that an object is a Html Page 
@@ -15,15 +16,17 @@ import org.openqa.selenium.WebElement;
  */
 public abstract class PageObject extends LinkCheckerUtils {
 	WebDriver driver;
-	
+	//protected DropDownSuggestionSearch dropdownSuggestion;
 	public PageObject(WebDriver driver){
 		this.driver = driver;
+//		dropdownSuggestion = new DropDownSuggestionSearch(driver);
+//		PageFactory.initElements(driver,dropdownSuggestion);
 	};
 	
 	WebDriver getDriver(){
 		return this.driver;
 	}
-
+	
 	protected int getElementCount(WebElement parent,By locator){
 		List<WebElement> elementResultsList=parent.findElements(locator);
 		return elementResultsList.size();
@@ -45,9 +48,13 @@ public abstract class PageObject extends LinkCheckerUtils {
 		return results.size();		
 	}
 	
-	protected void clickOnLink(WebElement parent,By locator, String linkLabel){
-		WebElement foundElement=null;
+	protected void clickOnLinkOfEqualString(WebElement parent,By locator, String linkLabel){
 		List<WebElement> linkResultsList=parent.findElements(locator);
+		clickOnLinkOfEqualString(linkResultsList, linkLabel);
+	}
+	
+	protected void clickOnLinkOfEqualString(List<WebElement> linkResultsList, String linkLabel){
+		WebElement foundElement=null;
 		for(WebElement currLinkElement:linkResultsList){
 			System.out.println(currLinkElement.getText());
 			if(currLinkElement.getText().equalsIgnoreCase(linkLabel)){
@@ -59,6 +66,24 @@ public abstract class PageObject extends LinkCheckerUtils {
 			foundElement.findElement(By.tagName("a")).click();
 		}else{
 			System.out.println("Link Not Found!!");
+		}		
+	}
+
+	public void clickOnLinkOfContainsString(List<WebElement> linkResultsList, String linkLabel){
+		WebElement foundElement=null;
+		for(WebElement currLinkElement:linkResultsList){
+			System.out.println(currLinkElement.getText());
+			if(StringUtils.containsIgnoreCase(currLinkElement.getText(), linkLabel)){
+				foundElement=currLinkElement;
+			}
 		}
+		if(foundElement!=null){
+			System.out.println("Link Found!!");
+			foundElement.click();
+			//foundElement.findElement(By.tagName("a")).click();;
+			//System.out.println(foundElement.findElement(By.tagName("a")));
+		}else{
+			System.out.println("Link Not Found!!");
+		}		
 	}
 }

@@ -55,7 +55,7 @@ public class TitleResultsPanel extends PageObject {
 	}
 	
 	public void clickTitleLink(String linkLabel){
-		this.clickOnLink(titleResultsDiv, results_text_locator, linkLabel);
+		this.clickOnLinkOfEqualString(titleResultsDiv, results_text_locator, linkLabel);
 	}
 	
 }
