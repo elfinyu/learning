@@ -1,4 +1,4 @@
-package page.search;
+package page.searchresult;
 
 import java.util.List;
 

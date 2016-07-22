@@ -13,8 +13,8 @@ import core.Factory;
 import page.MainPage;
 import page.movies.MovieDetailTitleBar;
 import page.movies.MoviesDetailPage;
-import page.search.ResultPage;
-import page.search.TitleResultsPanel;
+import page.searchresult.ResultPage;
+import page.searchresult.TitleResultsPanel;
 
 public class SearchTitleTest {
 	

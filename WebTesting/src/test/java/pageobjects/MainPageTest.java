@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import core.Factory;
 import page.LinkCheckerUtils;
 import page.MainPage;
-import page.search.ResultPage;
+import page.searchresult.ResultPage;
 
 public class MainPageTest {
 	

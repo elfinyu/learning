@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import core.Factory;
 import page.MainPage;
 import page.movies.MoviesDetailPage;
-import page.search.ResultPage;
+import page.searchresult.ResultPage;
 
 public class SearchNameTest {
 	WebDriver driver;

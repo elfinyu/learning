@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import page.PageObject;
-import page.search.TitleResultsPanel;
+import page.searchresult.TitleResultsPanel;
 
 public class MoviesDetailPage extends PageObject {
 

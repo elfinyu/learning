@@ -1,4 +1,4 @@
-package page.search;
+package page.searchresult;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
