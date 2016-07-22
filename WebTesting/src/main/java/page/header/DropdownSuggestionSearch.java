@@ -10,10 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import page.PageObject;
 
-public class DropDownSuggestionSearch extends PageObject{
+public class DropdownSuggestionSearch extends PageObject{
 	
-	DropDownSuggestionSearch dropdownSuggestion;
-	public DropDownSuggestionSearch(WebDriver driver) {
+	DropdownSuggestionSearch dropdownSuggestion;
+	public DropdownSuggestionSearch(WebDriver driver) {
 		super(driver);
 	}
 

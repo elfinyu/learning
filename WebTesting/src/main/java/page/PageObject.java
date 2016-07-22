@@ -14,7 +14,7 @@ public abstract class PageObject extends IMDBWebPage {
 		this.driver = driver;
 	};
 	
-	WebDriver getDriver(){
+	protected WebDriver getDriver(){
 		return this.driver;
 	}
 

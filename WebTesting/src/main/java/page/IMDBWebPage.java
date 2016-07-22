@@ -5,9 +5,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 public class IMDBWebPage extends LinkCheckerUtils {
 	
@@ -40,9 +38,10 @@ public class IMDBWebPage extends LinkCheckerUtils {
 	protected void clickOnLinkOfEqualString(List<WebElement> linkResultsList, String linkLabel){
 		WebElement foundElement=null;
 		String strTagName=null;
-		System.out.println(linkResultsList.size());
+
+		//System.out.println(linkResultsList.size());
 		for(WebElement currLinkElement:linkResultsList){
-			System.out.println(currLinkElement.getText());
+			//System.out.println(currLinkElement.getText());
 			if(currLinkElement.getText().equalsIgnoreCase(linkLabel)){
 				foundElement=currLinkElement;
 				strTagName=currLinkElement.getTagName();
