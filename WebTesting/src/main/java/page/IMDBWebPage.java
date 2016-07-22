@@ -39,15 +39,24 @@ public class IMDBWebPage extends LinkCheckerUtils {
 	
 	protected void clickOnLinkOfEqualString(List<WebElement> linkResultsList, String linkLabel){
 		WebElement foundElement=null;
+		String strTagName=null;
+		System.out.println(linkResultsList.size());
 		for(WebElement currLinkElement:linkResultsList){
 			System.out.println(currLinkElement.getText());
 			if(currLinkElement.getText().equalsIgnoreCase(linkLabel)){
 				foundElement=currLinkElement;
+				strTagName=currLinkElement.getTagName();
 			}
 		}
 		if(foundElement!=null){
-			System.out.println("Link Found!!");
-			foundElement.findElement(By.tagName("a")).click();
+			System.out.println("Link Found!!");			
+			if(strTagName.equals("a")){
+				System.out.println("Using locator <a>!!");	
+				foundElement.click();
+			}else{
+				System.out.println("Not using locator <a>!!");	
+				foundElement.findElement(By.tagName("a")).click();
+			}
 		}else{
 			System.out.println("Link Not Found!!");
 		}		
