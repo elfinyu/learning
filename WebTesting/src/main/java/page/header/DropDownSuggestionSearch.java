@@ -1,4 +1,4 @@
-package page;
+package page.header;
 
 import java.util.List;
 
@@ -6,12 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import page.PageObject;
 
 public class DropDownSuggestionSearch extends PageObject{
 	
+	DropDownSuggestionSearch dropdownSuggestion;
 	public DropDownSuggestionSearch(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 
 	@FindBy(xpath="//div[@id='navbar-suggestionsearch']")
@@ -23,4 +26,5 @@ public class DropDownSuggestionSearch extends PageObject{
 		List<WebElement> dropdownList=parentDropDown.findElements(drop_down_option_list);
 		this.clickOnLinkOfContainsString(dropdownList, strLabel);
 	}
+
 }

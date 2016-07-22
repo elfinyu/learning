@@ -1,28 +1,28 @@
 package page;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
-
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 
 public class MainPage extends PageObject {
 	
-	public DropDownSuggestionSearch dropdownSuggestion;
 	public MainPage(WebDriver driver) {
 		super(driver);
-		dropdownSuggestion = new DropDownSuggestionSearch(driver);
-		PageFactory.initElements(driver,dropdownSuggestion);		
+		// TODO Auto-generated constructor stub
 	}
 
 	@FindBy(id="navbar-query")
-	public WebElement searchBar;
+	WebElement searchBar;
+	public WebElement getSearchBar() {
+		return searchBar;
+	}
+
+	public void setSearchBar(WebElement searchBar) {
+		this.searchBar = searchBar;
+	}
+
 	@FindBy(id="navbar-submit-button")
 	WebElement submitButton;
 
