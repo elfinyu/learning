@@ -12,7 +12,7 @@ import core.Factory;
 import page.MainPage;
 import page.header.NavigationHeader;
 
-public class DropdownSearchTest {
+public class NavigationHeaderTest {
 	WebDriver driver;
 	MainPage main;
 	//DropDownSuggestionSearch dropdownSuggestion;
@@ -46,6 +46,10 @@ public class DropdownSearchTest {
 		
 		navigationHeader.getConsumerMainNav().clickOnWatchListNav("watchlist");
 		Assert.assertEquals(navigationHeader.getCurrentPageTitle(), "Watchlist - IMDb");
+		
+		navigationHeader.clickFollowFacebook();
+		navigationHeader.clickFollowInstagram();
+		navigationHeader.clickFollowTwitter();
 	}
 	
 	@AfterClass

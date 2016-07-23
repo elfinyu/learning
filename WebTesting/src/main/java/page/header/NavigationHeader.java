@@ -68,4 +68,21 @@ public class NavigationHeader extends PageObject {
 		String currTitle = getDriver().getTitle();
 		return currTitle;
 	}
+	
+	public void clickFollowFacebook(){
+		clickSocialButton(facebook_link);
+	}
+	
+	public void clickFollowTwitter(){
+		clickSocialButton(twitter_link);
+	}
+	
+	public void clickFollowInstagram(){
+		clickSocialButton(instagram_link);
+	}
+	
+	public void clickSocialButton(By locator){
+		WebElement socailElement=socialLinksParent.findElement(locator);
+		socailElement.click();
+	}
 }
