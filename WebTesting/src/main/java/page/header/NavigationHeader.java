@@ -36,6 +36,14 @@ public class NavigationHeader extends PageObject {
 	By twitter_link = By.xpath(".//span[@class='desktop-sprite follow-twitter']");
 	By instagram_link = By.xpath(".//span[@class='desktop-sprite follow-instagram']");
 	
+	@FindBy(id="nblogin")
+	WebElement loginName;
+	
+	
+	public void clickLoginButton(){
+		loginName.click();
+	}
+	
 	public WebElement getSearchBar() {
 		return searchBar;
 	}
