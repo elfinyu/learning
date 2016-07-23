@@ -39,7 +39,6 @@ public class LoginPage extends PageObject{
 	
 	public void clickLogin(){
 		submitButton.click();
-		
 	}
 	
 	public void verifySuccessfullyLogin(){
