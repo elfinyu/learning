@@ -1,0 +1,7 @@
+<suite name="Suite1" verbose="1"   parallel="classes" thread-count="3">
+    <test name="Regression1"   >
+        <packages>
+            <package name="pageobjects" />
+        </packages>
+    </test>
+</suite>

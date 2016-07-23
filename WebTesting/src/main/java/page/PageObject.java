@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
  * @author yudan
  *
  */
-public abstract class PageObject extends IMDBWebPage {
+public abstract class PageObject {
 	WebDriver driver;
 	
 	public PageObject(WebDriver driver){

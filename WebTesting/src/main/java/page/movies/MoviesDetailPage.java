@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import page.IMDBPage;
 import page.PageObject;
 import page.searchresult.TitleResultsPanel;
 
-public class MoviesDetailPage extends PageObject {
+public class MoviesDetailPage extends IMDBPage {
 
 	public MovieDetailTitleBar titleBar;
 	public MovieDetaiQuickLinksBar quickLinksBar;

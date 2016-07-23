@@ -4,9 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import page.IMDBPage;
 import page.PageObject;
 
-public class MovieDetailTitleBar extends PageObject {
+public class MovieDetailTitleBar extends IMDBPage {
 	
 	@FindBy(xpath = "//h1[@itemprop='name']")
 	WebElement movieTitle;

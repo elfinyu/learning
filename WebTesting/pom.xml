@@ -14,7 +14,20 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/suite.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<parallel>methods</parallel>
+					<threadCount>3</threadCount>
+				</configuration>
+			</plugin>
 		</plugins>
+
 	</build>
 
 	<dependencies>

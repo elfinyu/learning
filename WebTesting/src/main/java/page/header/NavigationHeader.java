@@ -6,9 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import page.IMDBPage;
 import page.PageObject;
 
-public class NavigationHeader extends PageObject {
+public class NavigationHeader extends IMDBPage {
 
 	DropdownSuggestionSearch navigationDropdownSearch;
 	QuickSearchDropdownList quickSearchDropdownList;

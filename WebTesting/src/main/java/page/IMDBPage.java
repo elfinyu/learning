@@ -5,10 +5,16 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class IMDBWebPage extends LinkCheckerUtils {
+public class IMDBPage extends PageObject{
 	
+	public IMDBPage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
 	protected int getElementCount(WebElement parent,By locator){
 		List<WebElement> elementResultsList=parent.findElements(locator);
 		return elementResultsList.size();

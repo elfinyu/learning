@@ -5,9 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import page.IMDBPage;
 import page.PageObject;
 
-public class MovieDetailSummaryBox extends PageObject{
+public class MovieDetailSummaryBox extends IMDBPage{
 
 	public MovieDetailSummaryBox(WebDriver driver) {
 		super(driver);

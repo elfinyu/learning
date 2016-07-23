@@ -6,10 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import page.IMDBWebPage;
-import page.PageObject;
+import page.IMDBPage;
 
-public class MovieDetaiQuickLinksBar extends PageObject{
+public class MovieDetaiQuickLinksBar extends IMDBPage{
 	
 	public MovieDetaiQuickLinksBar(WebDriver driver) {
 		super(driver);

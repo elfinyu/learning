@@ -21,7 +21,7 @@ public class MainPageTestWithoutFactory {
 		main = new MainPage(driver);
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void test(){
 		main.launch();
 		main.verfiySearchExist();

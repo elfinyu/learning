@@ -9,9 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import page.IMDBPage;
 import page.PageObject;
 
-public class TitleResultsPanel extends PageObject {
+public class TitleResultsPanel extends IMDBPage {
 
 	public TitleResultsPanel(WebDriver driver) {
 		super(driver);

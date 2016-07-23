@@ -1,15 +1,13 @@
 package page.header;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import page.PageObject;
+import page.IMDBPage;
 
-public class ConsumerMainNavigation extends PageObject {
+public class ConsumerMainNavigation extends IMDBPage {
 	
 	public ConsumerMainNavigation(WebDriver driver) {
 		super(driver);

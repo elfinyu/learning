@@ -3,9 +3,9 @@ package page.searchresult;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import page.PageObject;
+import page.IMDBPage;
 
-public class ResultPage extends PageObject {
+public class ResultPage extends IMDBPage {
 
 	public TitleResultsPanel titleResults;
 	public NameResultsPanel nameResults;
