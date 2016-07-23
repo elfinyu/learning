@@ -1,5 +1,6 @@
 package page.header;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,10 +27,14 @@ public class NavigationHeader extends PageObject {
 
 	@FindBy(id="navbar-submit-button")
 	WebElement submitButton;
-//	@FindBy(id="quicksearch")
-//	WebElement quickSearchSelection;
 	@FindBy(id="navbar-query")
 	WebElement searchBar;
+	
+	@FindBy(xpath="//li[@class='social js_nav_item']")
+	WebElement socialLinksParent;
+	By facebook_link = By.xpath(".//span[@class='desktop-sprite follow-facebook']");
+	By twitter_link = By.xpath(".//span[@class='desktop-sprite follow-twitter']");
+	By instagram_link = By.xpath(".//span[@class='desktop-sprite follow-instagram']");
 	
 	public WebElement getSearchBar() {
 		return searchBar;
@@ -50,14 +55,6 @@ public class NavigationHeader extends PageObject {
 	public void setQuickSearchDropdownList(QuickSearchDropdownList quickSearchDropdownList) {
 		this.quickSearchDropdownList = quickSearchDropdownList;
 	}
-
-//	public WebElement getQuickSearchSelection() {
-//		return quickSearchSelection;
-//	}
-//
-//	public void setQuickSearchSelection(WebElement quickSearchSelection) {
-//		this.quickSearchSelection = quickSearchSelection;
-//	}	
 
 	public ConsumerMainNavigation getConsumerMainNav() {
 		return consumerMainNav;
