@@ -5,3 +5,5 @@
 /bin/
 /WebTesting/test-output
 /CoreJava/test-output
+/WebTesting/.idea
+/WebTesting/*.iml
