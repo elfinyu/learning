@@ -8,11 +8,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import core.Factory;
+import page.header.NavigationHeader;
+
 public class IMDBPage extends PageObject{
+	public NavigationHeader menuBar;
 	
 	public IMDBPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
+		menuBar = Factory.getPage(NavigationHeader.class, driver);
 	}
 
 	protected int getElementCount(WebElement parent,By locator){

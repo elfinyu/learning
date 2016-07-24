@@ -41,8 +41,8 @@ public class QuickLinksBarTest {
 	public void clickQuickLinksBarTest(){
 	
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 		titleResults.clickTitleLink("Hulk (2003)");
 		moviesDetailPage.quickLinksBar.clickLink("TRIVIA");
 	}

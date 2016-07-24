@@ -1,6 +1,7 @@
 package page.header;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,11 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 import page.IMDBPage;
 import page.PageObject;
 
-public class NavigationHeader extends IMDBPage {
+public class NavigationHeader extends PageObject {
 
-	DropdownSuggestionSearch navigationDropdownSearch;
-	QuickSearchDropdownList quickSearchDropdownList;
-	ConsumerMainNavigation consumerMainNav;
+	public DropdownSuggestionSearch navigationDropdownSearch;
+	public QuickSearchDropdownList quickSearchDropdownList;
+	public ConsumerMainNavigation consumerMainNav;
 	
 	public NavigationHeader(WebDriver driver) {
 		super(driver);
@@ -53,25 +54,19 @@ public class NavigationHeader extends IMDBPage {
 		return navigationDropdownSearch;
 	}
 
-	public void setNavigationDropdownSearch(DropdownSuggestionSearch navigationDropdownSearch) {
-		this.navigationDropdownSearch = navigationDropdownSearch;
-	}
+	
 
 	public QuickSearchDropdownList getQuickSearchDropDownList() {
 		return quickSearchDropdownList;
 	}
 
-	public void setQuickSearchDropdownList(QuickSearchDropdownList quickSearchDropdownList) {
-		this.quickSearchDropdownList = quickSearchDropdownList;
-	}
+	
 
 	public ConsumerMainNavigation getConsumerMainNav() {
 		return consumerMainNav;
 	}
 
-	public void setConsumerMainNav(ConsumerMainNavigation consumerMainNav) {
-		this.consumerMainNav = consumerMainNav;
-	}
+	
 	
 	public String getCurrentPageTitle(){
 		String currTitle = getDriver().getTitle();
@@ -93,5 +88,15 @@ public class NavigationHeader extends IMDBPage {
 	public void clickSocialButton(By locator){
 		WebElement socailElement=socialLinksParent.findElement(locator);
 		socailElement.click();
+	}
+	
+	public void verfiySearchExist(){
+		if(!searchBar.isDisplayed()) throw new ElementNotVisibleException("as");
+	}
+	
+	public void searchTitle(String value){
+		searchBar.sendKeys(value);
+		//submitButton.click();
+		searchBar.submit();	
 	}
 }

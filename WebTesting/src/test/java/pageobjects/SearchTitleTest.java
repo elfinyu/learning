@@ -11,10 +11,8 @@ import org.testng.annotations.Test;
 
 import core.Factory;
 import page.MainPage;
-import page.movies.MovieDetailTitleBar;
 import page.movies.MoviesDetailPage;
 import page.searchresult.ResultPage;
-import page.searchresult.TitleResultsPanel;
 
 public class SearchTitleTest {
 	
@@ -40,8 +38,8 @@ public class SearchTitleTest {
 	@Test
 	public void searchTitleResult(){
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 		resultPage.titleResults.clickTitleLink("Hulk (2003)");
 		Assert.assertEquals(moviesDetailPage.titleBar.getMovieTitle(),"Hulk (2003)");
 		Assert.assertEquals(moviesDetailPage.titleBar.getMovieDuration(), "2h 18min");
