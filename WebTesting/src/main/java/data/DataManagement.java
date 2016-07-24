@@ -44,6 +44,7 @@ public class DataManagement {
 		beanStrategy.setType(Movie.class);
 
 		Map<String, String> columnMapping = new HashMap<String, String>();
+		//map the key of csv files with the key of movie list keys
 		columnMapping.put("title", "name");
 		columnMapping.put("date", "releasedate");
 	
@@ -58,7 +59,8 @@ public class DataManagement {
 		List<Movie> emps = csvToBean.parse(beanStrategy, reader);
 		return emps;
 	}
-
+	
+	//singleton pattern
 	public static DataManagement getInstance() {
 		if (instance == null) {
 			synchronized (DataManagement.class) {
