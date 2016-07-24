@@ -1,0 +1,15 @@
+src/main/java
+
+contains main source code
+
+src/main/resources
+
+contains property/configurations files
+
+src/test/java
+contains test code
+
+
+src/test/resources
+
+test data and test configurations
