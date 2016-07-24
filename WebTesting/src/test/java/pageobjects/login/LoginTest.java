@@ -3,22 +3,15 @@ package pageobjects.login;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Navigation;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import core.Factory;
-import login.LoginPage;
-import login.LoginSelectionPage;
 import page.MainPage;
-import page.header.NavigationHeader;
-import page.movies.MovieDetaiQuickLinksBar;
-import page.movies.MoviesDetailPage;
-import page.searchresult.ResultPage;
-import page.searchresult.TitleResultsPanel;
+import page.login.LoginPage;
+import page.login.LoginSelectionPage;
 
 public class LoginTest {
 	
