@@ -65,9 +65,20 @@ public class NavigationMenuTest {
 	@Test
 	public void navigationPopPanelWatchlistTest(){
 		main.launch();
-		consumerMainNav.getWatchlistPopPanelControl().selectWatchlistPanelLink("Add items to your Watchlist");
+		consumerMainNav.getWatchlistPopPanelControl().selectWatchlistPanelLink("nv_wl_img_1");
 		actual=main.getCurrentPageTitle();
-		System.out.println(actual);		
+		expected="Watchlist - IMDb";
+		Assert.assertEquals(actual, expected);
+		
+		consumerMainNav.getWatchlistPopPanelControl().selectWatchlistPanelLink("nv_wl_img_2");
+		actual=main.getCurrentPageTitle();
+		expected="IMDb: Most Popular TV Series/Feature Films";
+		Assert.assertEquals(actual, expected);
+		
+		consumerMainNav.getWatchlistPopPanelControl().selectWatchlistPanelLink("nv_wl_img_3");
+		actual=main.getCurrentPageTitle();
+		expected="IMDb Top 250 - IMDb";
+		Assert.assertEquals(actual, expected);	
 	}
 	
 	@AfterTest

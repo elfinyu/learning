@@ -1,6 +1,7 @@
 package page.header.poppanel;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,19 +26,22 @@ public class WatchlistPopPanel extends IMDBPage {
 	final static String strPanelLocator="#navWatchlistMenu>div.sub_nav";
 	
 	public void selectWatchlistPanelLink(String linkLabel){
-		mouseoverDisplay(strPanelLocator);
 		WebDriverWait waitA = new WebDriverWait(getDriver(), 10);
-		waitA.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("img")));
+		
+		mouseoverDisplay(strPanelLocator);
+		waitA.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[@id='navMenu4']//li")));
+		waitA.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("a")));
 		
 		List<WebElement> imgLinksList=eventsButton.findElements(popup_panel_list);
-		System.out.println(imgLinksList.size());
+		//System.out.println(imgLinksList.size());
 		for(WebElement imgLink:imgLinksList){
-			WebElement imgElement=imgLink.findElement(By.tagName("img"));
-			System.out.println(imgElement.getAttribute("title"));
-			if(imgElement.getAttribute("title").equals(imgLinksList)){
-				System.out.println("Click Image");
+			WebElement imgElement=imgLink.findElement(By.tagName("a"));
+			//System.out.println(imgElement.getAttribute("href"));
+			if(imgElement.getAttribute("href").contains(linkLabel)){
 				imgElement.click();
+				break;
 			}
 		}
+		
 	}
 }
