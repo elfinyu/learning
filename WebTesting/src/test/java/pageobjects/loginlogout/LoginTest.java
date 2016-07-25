@@ -52,7 +52,7 @@ public class LoginTest {
 		loginPage.enterPassword(password);
 		loginPage.clickLogin();
 		loginPage.verifySuccessfullyLogin();
-		profilemenu.logout();
+		profilemenu.getLogoutControl().logout();
 		
 	}
 

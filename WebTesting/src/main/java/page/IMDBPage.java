@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -82,5 +83,16 @@ public class IMDBPage extends PageObject{
 			System.out.println("Link Not Found!!");
 		}		
 	}
-
+	
+	protected void mouseoverDisplay(String strHoverLocator){
+		JavascriptExecutor js=(JavascriptExecutor)getDriver();
+		String hoverDisplayScript="document.querySelector('"+ strHoverLocator +"').setAttribute('style','display: block;');";
+		//System.out.println(hoverDisplayScript);
+		js.executeScript(hoverDisplayScript);
+	}
+	
+	protected void selectPopPanelLink(String locator,List<WebElement> linksList,String linkLabel){
+		mouseoverDisplay(locator);
+		clickOnLinkOfEqualString(linksList, linkLabel);		
+	}
 }
