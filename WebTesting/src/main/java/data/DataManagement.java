@@ -46,9 +46,7 @@ public class DataManagement {
 		Map<String, String> columnMapping = new HashMap<String, String>();
 		//map the key of csv files with the key of movie list keys
 		columnMapping.put("title", "name");
-		columnMapping.put("date", "releasedate");
-	
-		
+		columnMapping.put("date", "releasedate");	
 
 		beanStrategy.setColumnMapping(columnMapping);
 
