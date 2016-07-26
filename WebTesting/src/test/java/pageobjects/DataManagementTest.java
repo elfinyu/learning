@@ -15,9 +15,6 @@ public class DataManagementTest {
 	@Test
 	public void test() throws IOException, URISyntaxException{
 		DataManagement instance = DataManagement.getInstance();
-		testMovieList=instance.parseCSVToBeanList();
-		for(Movie movie:testMovieList){
-			
-		}
+		
 	}
 }

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import page.IMDBPage;
 import page.PageObject;
 
-public class QuickSearchDropdownList extends IMDBPage {
+public class QuickSearchDropdownList extends PageObject {
 	public QuickSearchDropdownList(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub

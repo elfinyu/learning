@@ -8,8 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import page.IMDBPage;
+import page.PageObject;
 
-public class MoviesPopPanel extends IMDBPage {
+public class MoviesPopPanel extends PageObject {
 
 	public MoviesPopPanel(WebDriver driver) {
 		super(driver);
@@ -24,7 +25,7 @@ public class MoviesPopPanel extends IMDBPage {
 	
 	public void selectMoviesPanelLink(String linkLabel){
 		List<WebElement> linksList=moviesButton.findElements(popup_panel_list);
-		selectPopPanelLink(strPanelLocator,linksList,linkLabel);
+		IMDBPage.selectPopPanelLink(strPanelLocator,linksList,linkLabel, getDriver());
 	}
 	
 }

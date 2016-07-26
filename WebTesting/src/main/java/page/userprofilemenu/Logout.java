@@ -61,7 +61,7 @@ public class Logout extends IMDBPage {
 	/*Extract as mouseoverDisplay method*/
 	private void logout3(){
 		String strHoverLocator="#navUserMenu>div.sub_nav";
-		mouseoverDisplay(strHoverLocator);
+		IMDBPage.mouseoverDisplay(strHoverLocator,getDriver());
 		getDriver().findElement(logout_locator).click();
 		WebDriverWait waitA = new WebDriverWait(getDriver(), 10);
 		waitA.until(ExpectedConditions.visibilityOfElementLocated(By.id("nblogin")));		
