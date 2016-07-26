@@ -15,7 +15,13 @@ public class IMDBPage extends PageObject{
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	protected List<WebElement> getListOfResult(WebElement parent,By locator){
+		List<WebElement> elementResultsList=parent.findElements(locator);
+		System.out.println("SIZE : "+elementResultsList.size());
+		return elementResultsList;
+	}
+	
 	protected int getElementCount(WebElement parent,By locator){
 		List<WebElement> elementResultsList=parent.findElements(locator);
 		return elementResultsList.size();

@@ -1,5 +1,6 @@
 package page.movies;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,32 +32,60 @@ public class MovieDetailTitleBar extends IMDBPage {
 	}
 
 	public String getMovieTitle() {
-		return movieTitle.getText();
+		try{
+			return movieTitle.getText();
+		}catch(NoSuchElementException e){
+			return "-NA-";
+		}
 	}
 	
 	public String getMovieDuration(){
-		return movieDuration.getText();
+		try{
+			return movieDuration.getText();
+		}catch(NoSuchElementException e){
+			return "-NA-";
+		}
 	}
 	
 	public String getMovieContentRating(){
-		System.out.println(movieContentRating.getAttribute("content"));
-		return movieContentRating.getAttribute("content");
+		try{
+			System.out.println(movieContentRating.getAttribute("content"));
+			return movieContentRating.getAttribute("content");
+		}catch(NoSuchElementException e){
+			return "-NA-";
+		}
 	}
 
 	public String getMovieType(){
-		return movieType.getText();
+		try{
+			return movieType.getText();
+		}catch(NoSuchElementException e){
+			return "-NA-";
+		}
 	}
 	
 	public String getMovieReleaseDate(){
-		return movieDate.getText();
+		try{
+			return movieDate.getText();
+		}catch(NoSuchElementException e){
+			return "-NA-";
+		}
 	}
 	
 	public String getMovieViewerRating(){
-		return movieViewerRating.getText();
+		try{
+			return movieViewerRating.getText();
+		}catch(NoSuchElementException e){
+			return "-NA-";
+		}
 	}
 	
 	public int getMovieViewerRatingCount(){
-		return Integer.parseInt(movieViewerRatingCount.getText().replace(",", ""));
+		try{
+			return Integer.parseInt(movieViewerRatingCount.getText().replace(",", ""));
+		}catch(NoSuchElementException e){
+			return -1;
+		}
 	}	
 
 }

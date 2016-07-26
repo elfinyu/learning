@@ -1,11 +1,20 @@
 package pageobjects;
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -22,11 +31,12 @@ public class OutPutMovieDetailsTest {
 	MainPage main;
 	ResultPage resultPage;
 	MovieDetailPage movieDetailPage;
-	static PrintStream out;
+	static PrintWriter out;
+	String strFile;
 	
 	MovieDetailSummaryBox movieDetailSummary;
 	@BeforeTest
-	public void init(){
+	public void init() throws IOException{
 		System.setProperty("webdriver.chrome.driver", "D:\\developmentStack\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -34,6 +44,8 @@ public class OutPutMovieDetailsTest {
 		main = Factory.getPage(MainPage.class, driver);
 		resultPage = Factory.getPage(ResultPage.class, driver);
 		movieDetailPage = Factory.getPage(MovieDetailPage.class, driver);	
+		strFile="moviesDetails.csv";
+		out = new PrintWriter(new FileWriter(strFile,true));
 	}
 
 	@Test
@@ -54,18 +66,43 @@ public class OutPutMovieDetailsTest {
 		
 		String strContent = strTitle+","+strContentRate+","+strDuration+","+strMovieCategory+","
 		+strReleaseYear+","+intUserReviewsCnt+","+intCriticReviewsCnt+","+strPopularityTrend;
-		writeToFile(strContent);
+		//out.write(strContent);
+		//out.println(strContent);
+	}
+
+	@Test
+	public void getListOfResultsTest(){
+		main.launch();
+		main.verfiySearchExist();
+		main.searchTitle("Hulk");
+		List<WebElement> listOfResult = resultPage.getTitleResultsControl().getListOfResults();
+		System.out.println("size: " + listOfResult.size());
+		int i=0;
+		int max=listOfResult.size();
+		while(i<max){
+			listOfResult = resultPage.getTitleResultsControl().getListOfResults();
+			listOfResult.get(i).click();
+			String strTitle=movieDetailPage.getTitleBarControl().getMovieTitle();
+			String strContentRate=movieDetailPage.getTitleBarControl().getMovieContentRating();
+			String strDuration=movieDetailPage.getTitleBarControl().getMovieDuration();
+			String strMovieCategory=movieDetailPage.getTitleBarControl().getMovieType();
+			String strReleaseYear=movieDetailPage.getTitleBarControl().getMovieReleaseDate();
+			int intUserReviewsCnt = movieDetailPage.getMovieDetailSummaryControl().getUsersReviewsCount();
+			int intCriticReviewsCnt = movieDetailPage.getMovieDetailSummaryControl().getCriticReviewsCount();
+			String strPopularityTrend=movieDetailPage.getMovieDetailSummaryControl().getPopularityTrend();
+			
+			String strContent = strTitle+","+strContentRate+","+strDuration+","+strMovieCategory+","
+			+strReleaseYear+","+intUserReviewsCnt+","+intCriticReviewsCnt+","+strPopularityTrend;
+			//writeToFile(strContent);
+			//out.write(strContent);
+			out.println(strContent);
+			driver.navigate().back();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			i++;
+		}
+
 	}
 	
-	public void writeToFile(String xx){
-		try {
-			out = new PrintStream("moviesDetails.csv");
-			out.println(xx);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	@AfterTest
 	public void tearDown(){
@@ -78,5 +115,7 @@ public class OutPutMovieDetailsTest {
 		if(driver!=null){
 			driver.quit();
 		}
+		out.flush();
+		out.close();
 	}
 }

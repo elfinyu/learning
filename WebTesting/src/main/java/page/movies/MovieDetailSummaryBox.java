@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import page.IMDBPage;
 import page.PageObject;
+import org.openqa.selenium.NoSuchElementException;
 
 public class MovieDetailSummaryBox extends IMDBPage{
 
@@ -42,27 +43,42 @@ public class MovieDetailSummaryBox extends IMDBPage{
 	WebElement popularityTrend;
 	
 	public int getUsersReviewsCount(){
-		System.out.println(reviewsParentSpan.getText());
-		WebElement userReviews=reviewsParentSpan.findElement(user_reviews_locator);
-		System.out.println(userReviews.getText());
-		String strUserReviews=userReviews.getText();
-		return getReviewsCount(strUserReviews,"user");
-		//return 0;
+		try{
+			System.out.println(reviewsParentSpan.getText());
+			WebElement userReviews=reviewsParentSpan.findElement(user_reviews_locator);
+			System.out.println(userReviews.getText());
+			String strUserReviews=userReviews.getText();
+			return getReviewsCount(strUserReviews,"user");
+		}catch(NoSuchElementException e){
+			return -1;
+		}
 	}
 	
 	public int getCriticReviewsCount(){
-		WebElement criticReviews=reviewsParentSpan.findElement(critic_reviews_locator);
-		String strCriticReviews=criticReviews.getText();
-		return getReviewsCount(strCriticReviews,"critic");
+		try{
+			WebElement criticReviews=reviewsParentSpan.findElement(critic_reviews_locator);
+			String strCriticReviews=criticReviews.getText();
+			return getReviewsCount(strCriticReviews,"critic");
+		}catch(NoSuchElementException e){
+			return -1;
+		}
 	}
 	
 	private int getReviewsCount(String strReviews, String strReplace){
-		strReviews=strReviews.replace(strReplace, "").trim();
-		strReviews=strReviews.replace(",", "").trim();		
-		return Integer.parseInt(strReviews);
+		try{
+			strReviews=strReviews.replace(strReplace, "").trim();
+			strReviews=strReviews.replace(",", "").trim();		
+			return Integer.parseInt(strReviews);
+		}catch(NoSuchElementException e){
+			return -1;
+		}
 	}
 	
 	public String getPopularityTrend(){
-		return popularityTrend.getText();
+		try{
+			return popularityTrend.getText();
+		}catch(NoSuchElementException e){
+			return "-NA-";
+		}
 	}	
 }

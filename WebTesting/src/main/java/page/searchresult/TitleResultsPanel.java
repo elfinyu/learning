@@ -60,4 +60,7 @@ public class TitleResultsPanel extends IMDBPage {
 		this.clickOnLinkOfEqualString(titleResultsDiv, results_text_locator, linkLabel);
 	}
 	
+	public List<WebElement> getListOfResults(){
+		return this.getListOfResult(titleResultsDiv, results_text_locator_links);
+	}
 }
