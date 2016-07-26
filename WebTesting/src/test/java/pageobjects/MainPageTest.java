@@ -32,10 +32,10 @@ public class MainPageTest {
 	@Test
 	public void test(){
 		main.launch();
-		main.verfiySearchExist();
+		main.menuBar.verfiySearchExist();
 //		System.out.println("Links in main page: "+LinkCheckerUtils.getAllLinksCount(main));
 		
-		main.searchTitle("Hulk");
+		main.menuBar.searchTitle("Hulk");
 //		String actual=main.getCurrentPageTitle();
 //		String expected="Find - IMDb";
 //		Assert.assertEquals(actual, expected);
@@ -51,8 +51,8 @@ public class MainPageTest {
 	public void myTest(){
 	
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 		Assert.assertEquals(result.getTitleResultsCount("Hulk"), 10,"Should have 10 results");
 		Assert.assertEquals(result.getTitleResultsCountOfLinks("Hulk"), 10,"Should have 10 results");
 		Assert.assertEquals(result.getTitleResultsCountOfLinksUsingXpath("Hulk"), 10,"Should have 10 results");
@@ -62,8 +62,8 @@ public class MainPageTest {
 	@Test
 	public void testLinkClicking(){
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 		int cntByTD = result.getTitleResultsCountOfLinks("Hulk");
 		//System.out.println("Links(xpath:<td>) in result page: "+ cntByTD);
 		int cntByA = result.getTitleResultsCountOfLinksUsingXpath("Hulk");

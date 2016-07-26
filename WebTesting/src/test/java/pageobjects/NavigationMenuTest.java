@@ -17,6 +17,7 @@ public class NavigationMenuTest {
 	
 	WebDriver driver;
 	MainPage main;
+	ConsumerMainNavigation consumerMainNav;
 	
 	String expected,actual;
 	
@@ -26,13 +27,13 @@ public class NavigationMenuTest {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		main = Factory.getPage(MainPage.class, driver);
-		
+		consumerMainNav= Factory.getPage(ConsumerMainNavigation.class, driver);
 	}
 	
 	@Test
 	public void navigationTest(){
 		main.launch();
-		main.menuBar.consumerMainNav.clickOnTitleMenuNav("TV");
+		consumerMainNav.clickOnTitleMenuNav("TV");
 		expected="IMDb Top 250 TV - IMDb";
 		actual=main.getCurrentPageTitle();
 		Assert.assertEquals(actual, expected);

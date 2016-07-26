@@ -46,8 +46,8 @@ public class MovieDetailsInfoTest {
 	@Test
 	public void movieDetailInfoTest(){
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 		resultPage.getTitleResultsControl().clickTitleLink("Hulk (2003)");	
 		int x = movieDetailPage.getMovieDetailSummaryControl().getUsersReviewsCount();
 		int y = movieDetailPage.getMovieDetailSummaryControl().getCriticReviewsCount();
