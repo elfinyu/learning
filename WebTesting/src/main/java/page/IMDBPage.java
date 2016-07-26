@@ -24,13 +24,17 @@ public class IMDBPage extends PageObject{
 	protected int getElementCount(WebElement parent,By locator, String search){
 		List<WebElement> findElements = parent.findElements(locator);
 		List<WebElement> results = new ArrayList<>();
+//		System.out.println("size:"+findElements.size());
 		for(WebElement element : findElements){
-			System.out.println("Current <td> text:"+element.getText());
-			WebElement linkTextElement = element.findElement(By.tagName("a"));
-			System.out.println("Current <a> text:"+linkTextElement.getText());
-			if(StringUtils.containsIgnoreCase(linkTextElement.getText(),search)){
-				System.out.println("Contained text:"+linkTextElement.getText());
-				results.add(linkTextElement);
+			//System.out.println("Current <td> text:"+element.getText());
+			//WebElement linkTextElement = element.findElement(By.tagName("a"));
+			//System.out.println("Current <a> text:"+linkTextElement.getText());
+			//if(StringUtils.containsIgnoreCase(linkTextElement.getText(),search)){
+			if(StringUtils.containsIgnoreCase(element.getText(),search)){
+//				System.out.println("Searching text:"+search);
+//				System.out.println("Contained text:"+element.getText());
+				//results.add(linkTextElement);
+				results.add(element);
 			}
 		}
 		System.out.println();

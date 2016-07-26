@@ -11,14 +11,14 @@ import org.testng.annotations.Test;
 
 import core.Factory;
 import page.MainPage;
-import page.movies.MoviesDetailPage;
+import page.movies.MovieDetailPage;
 import page.searchresult.ResultPage;
 
 public class SearchNameTest {
 	WebDriver driver;
 	MainPage main;
 	ResultPage resultPage;
-	MoviesDetailPage moviesDetailPage;
+	MovieDetailPage movieDetailPage;
 	
 	@BeforeClass
 	public void init(){
@@ -27,7 +27,7 @@ public class SearchNameTest {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		main = Factory.getPage(MainPage.class, driver);
 		resultPage = Factory.getPage(ResultPage.class, driver);
-		moviesDetailPage=Factory.getPage(MoviesDetailPage.class, driver);
+		movieDetailPage=Factory.getPage(MovieDetailPage.class, driver);
 	}
 	
 	@Test
@@ -35,9 +35,9 @@ public class SearchNameTest {
 		main.launch();
 		main.verfiySearchExist();
 		main.searchTitle("Hulk");
-		System.out.println("result rows: "+resultPage.nameResults.getNameResultsCount());
-		System.out.println("result links: "+resultPage.nameResults.getNameResultsLinksCount());
-		resultPage.nameResults.clickNameLink("Hulk Hogan (Actor, Rocky III (1982))");
+		System.out.println("result rows: "+resultPage.getNameResultsControl().getNameResultsCount());
+		System.out.println("result links: "+resultPage.getNameResultsControl().getNameResultsLinksCount());
+		resultPage.getNameResultsControl().clickNameLink("Hulk Hogan (Actor, Rocky III (1982))");
 	}
 	
 	@AfterClass

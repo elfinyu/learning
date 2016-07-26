@@ -15,7 +15,8 @@ public class MovieDetailTitleBar extends IMDBPage {
 	WebElement movieDuration;
 	@FindBy(xpath = "//meta[@itemprop='contentRating']")
 	WebElement movieContentRating;
-	@FindBy(xpath = "//span[@itemprop='genre']")
+	//@FindBy(xpath = "//span[@itemprop='genre']")
+	@FindBy(xpath = "//a[contains(@href,'gnr')]/..")
 	WebElement movieType; // have 2 matches?
 	@FindBy(xpath = "//a[@title='See more release dates']")
 	WebElement movieDate;
@@ -38,7 +39,8 @@ public class MovieDetailTitleBar extends IMDBPage {
 	}
 	
 	public String getMovieContentRating(){
-		return movieContentRating.getText();
+		System.out.println(movieContentRating.getAttribute("content"));
+		return movieContentRating.getAttribute("content");
 	}
 
 	public String getMovieType(){
@@ -56,4 +58,5 @@ public class MovieDetailTitleBar extends IMDBPage {
 	public int getMovieViewerRatingCount(){
 		return Integer.parseInt(movieViewerRatingCount.getText().replace(",", ""));
 	}	
+
 }

@@ -64,10 +64,11 @@ public class MainPageTest {
 		main.launch();
 		main.verfiySearchExist();
 		main.searchTitle("Hulk");
-		int x = result.getTitleResultsCountOfLinks("Hulk");
-		System.out.println("Links(xpath:td) in result page: "+ x);
-		x = result.getTitleResultsCountOfLinksUsingXpath("Hulk");
-		System.out.println("Links(xpath:a) in result page: "+ x);
+		int cntByTD = result.getTitleResultsCountOfLinks("Hulk");
+		//System.out.println("Links(xpath:<td>) in result page: "+ cntByTD);
+		int cntByA = result.getTitleResultsCountOfLinksUsingXpath("Hulk");
+		//System.out.println("Links(xpath:<a>) in result page: "+ cntByA);
+		Assert.assertEquals(cntByTD,cntByA);
 	}
 	
 	@AfterClass

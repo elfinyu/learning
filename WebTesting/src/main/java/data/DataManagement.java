@@ -38,7 +38,7 @@ public class DataManagement {
 		}
 	}
 
-	private List<Movie> parseCSVToBeanList() throws IOException, URISyntaxException {
+	public List<Movie> parseCSVToBeanList() throws IOException, URISyntaxException {
 
 		HeaderColumnNameTranslateMappingStrategy<Movie> beanStrategy = new HeaderColumnNameTranslateMappingStrategy<Movie>();
 		beanStrategy.setType(Movie.class);

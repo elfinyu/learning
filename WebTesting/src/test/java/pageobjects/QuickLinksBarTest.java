@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import core.Factory;
 import page.MainPage;
 import page.movies.MovieDetaiQuickLinksBar;
-import page.movies.MoviesDetailPage;
+import page.movies.MovieDetailPage;
 import page.searchresult.ResultPage;
 import page.searchresult.TitleResultsPanel;
 
@@ -22,7 +22,7 @@ public class QuickLinksBarTest {
 	MainPage main;
 	ResultPage resultPage;
 	TitleResultsPanel titleResults;
-	MoviesDetailPage moviesDetailPage;
+	MovieDetailPage movieDetailPage;
 	//MovieDetaiQuickLinksBar quickLinksBar;
 	
 	@BeforeClass
@@ -33,7 +33,7 @@ public class QuickLinksBarTest {
 		main = Factory.getPage(MainPage.class, driver);
 		resultPage = Factory.getPage(ResultPage.class, driver);
 		titleResults = Factory.getPage(TitleResultsPanel.class, driver);
-		moviesDetailPage=Factory.getPage(MoviesDetailPage.class, driver);
+		movieDetailPage=Factory.getPage(MovieDetailPage.class, driver);
 		//quickLinksBar=Factory.getPage(MovieDetaiQuickLinksBar.class, driver);
 	}
 	
@@ -44,7 +44,7 @@ public class QuickLinksBarTest {
 		main.verfiySearchExist();
 		main.searchTitle("Hulk");
 		titleResults.clickTitleLink("Hulk (2003)");
-		moviesDetailPage.quickLinksBar.clickLink("TRIVIA");
+		movieDetailPage.getQuickLinksBarControl().clickLink("TRIVIA");
 	}
 
 	
