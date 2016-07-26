@@ -39,7 +39,7 @@ public class NavigationHeader extends PageObject {
 	By instagram_link = By.xpath(".//span[@class='desktop-sprite follow-instagram']");
 	
 	@FindBy(id="nblogin")
-	WebElement loginName;
+	public WebElement loginName;
 	
 	
 	public void clickLoginButton(){

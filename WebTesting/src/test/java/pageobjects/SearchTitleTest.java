@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import core.Factory;
 import page.MainPage;
-import page.movies.MoviesDetailPage;
+import page.movies.MovieDetailPage;
 import page.searchresult.ResultPage;
 
 public class SearchTitleTest {
@@ -20,7 +20,7 @@ public class SearchTitleTest {
 	MainPage main;
 	ResultPage resultPage;
 	//TitleResultsPanel titleResults;
-	MoviesDetailPage moviesDetailPage;
+	MovieDetailPage movieDetailPage;
 	//MovieDetailTitleBar titleBar;
 	
 	@BeforeClass
@@ -31,7 +31,7 @@ public class SearchTitleTest {
 		main = Factory.getPage(MainPage.class, driver);
 		resultPage = Factory.getPage(ResultPage.class, driver);
 		//titleResults = Factory.getPage(TitleResultsPanel.class, driver);
-		moviesDetailPage=Factory.getPage(MoviesDetailPage.class, driver);
+		movieDetailPage=Factory.getPage(MovieDetailPage.class, driver);
 		//titleBar=Factory.getPage(MovieDetailTitleBar.class, driver);
 	}
 	
@@ -40,9 +40,9 @@ public class SearchTitleTest {
 		main.launch();
 		main.menuBar.verfiySearchExist();
 		main.menuBar.searchTitle("Hulk");
-		resultPage.titleResults.clickTitleLink("Hulk (2003)");
-		Assert.assertEquals(moviesDetailPage.titleBar.getMovieTitle(),"Hulk (2003)");
-		Assert.assertEquals(moviesDetailPage.titleBar.getMovieDuration(), "2h 18min");
+		resultPage.getTitleResultsControl().clickTitleLink("Hulk (2003)");
+		Assert.assertEquals(movieDetailPage.getTitleBarControl().getMovieTitle(),"Hulk (2003)");
+		Assert.assertEquals(movieDetailPage.getTitleBarControl().getMovieDuration(), "2h 18min");	
 	}
 	
 	@AfterClass

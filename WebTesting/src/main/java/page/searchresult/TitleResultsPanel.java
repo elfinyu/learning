@@ -37,7 +37,7 @@ public class TitleResultsPanel extends IMDBPage {
 	 * @return
 	 */
 	public int getTitleResultsCount(String search){
-		return this.getElementCount(titleResultsDiv, results_text_locator,search);
+		return this.getElementCount(titleResultsDiv, results_text_locator, search);
 	}
 	
 	public int getTitleResultsCountOfLinks(){
@@ -56,6 +56,7 @@ public class TitleResultsPanel extends IMDBPage {
 	}
 	
 	public void clickTitleLink(String linkLabel){
+		System.out.println(linkLabel);
 		this.clickOnLinkOfEqualString(titleResultsDiv, results_text_locator, linkLabel);
 	}
 	

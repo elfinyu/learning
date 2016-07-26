@@ -7,27 +7,42 @@ import page.IMDBPage;
 
 public class ResultPage extends IMDBPage {
 
-	public TitleResultsPanel titleResults;
-	public NameResultsPanel nameResults;
+	public TitleResultsPanel titleResultsControl;
+	public NameResultsPanel nameResultsControl;
 
 	public ResultPage(WebDriver driver) {
 		super(driver);
-		this.titleResults = new TitleResultsPanel(driver);
-		PageFactory.initElements(driver, titleResults);
-		this.nameResults = new NameResultsPanel(driver);
-		PageFactory.initElements(driver, nameResults);
+		this.titleResultsControl = new TitleResultsPanel(driver);
+		PageFactory.initElements(driver, titleResultsControl);
+		this.nameResultsControl = new NameResultsPanel(driver);
+		PageFactory.initElements(driver, nameResultsControl);
 	}
 
 	public int getTitleResultsCount(String search) {
-		return titleResults.getTitleResultsCount(search);
+		return titleResultsControl.getTitleResultsCount(search);
 	}
 
 	public int getTitleResultsCountOfLinks(String search) {
-		return titleResults.getTitleResultsCountOfLinks(search);
+		return titleResultsControl.getTitleResultsCountOfLinks(search);
 	}
 
 	public int getTitleResultsCountOfLinksUsingXpath(String search) {
-		return titleResults.getTitleResultsCountOfLinksUsingXpath(search);
+		return titleResultsControl.getTitleResultsCountOfLinksUsingXpath(search);
 	}
 	
+	public TitleResultsPanel getTitleResultsControl() {
+		return titleResultsControl;
+	}
+
+	public void setTitleResultsControl(TitleResultsPanel titleResultsControl) {
+		this.titleResultsControl = titleResultsControl;
+	}
+
+	public NameResultsPanel getNameResultsControl() {
+		return nameResultsControl;
+	}
+
+	public void setNameResultsControl(NameResultsPanel nameResultsControl) {
+		this.nameResultsControl = nameResultsControl;
+	}	
 }
