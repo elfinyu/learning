@@ -39,10 +39,6 @@ public class MovieDetailsInfoTest {
 		main = Factory.getPage(MainPage.class, driver);
 		resultPage = Factory.getPage(ResultPage.class, driver);
 		movieDetailPage = Factory.getPage(MovieDetailPage.class, driver);
-//		
-//		main = Factory.getPage(MainPage.class, driver);
-//		resultPage = Factory.getPage(ResultPage.class, driver);
-//		movieDetailPage = Factory.getPage(MovieDetailPage.class, driver);		
 	}
 
 	@Test

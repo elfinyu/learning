@@ -73,8 +73,8 @@ public class OutPutMovieDetailsTest {
 	@Test
 	public void getListOfResultsTest(){
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 		List<WebElement> listOfResult = resultPage.getTitleResultsControl().getListOfResults();
 		System.out.println("size: " + listOfResult.size());
 		int i=0;
