@@ -72,7 +72,7 @@ public class NavigationMenuTest {
 		
 		consumerMainNav.getWatchlistPopPanelControl().selectWatchlistPanelLink("nv_wl_img_2");
 		actual=main.getCurrentPageTitle();
-		expected="IMDb: Most Popular TV Series/Feature Films";
+		expected="IMDb: Most Popular Feature Films/TV Series - IMDb";
 		Assert.assertEquals(actual, expected);
 		
 		consumerMainNav.getWatchlistPopPanelControl().selectWatchlistPanelLink("nv_wl_img_3");

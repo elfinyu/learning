@@ -76,7 +76,9 @@ public class MovieDetailSummaryBox extends IMDBPage{
 	
 	public String getPopularityTrend(){
 		try{
-			return popularityTrend.getText();
+			String strPopularity=popularityTrend.getText();
+			strPopularity=strPopularity.replace(",", "").trim();	
+			return strPopularity;
 		}catch(NoSuchElementException e){
 			return "-NA-";
 		}
