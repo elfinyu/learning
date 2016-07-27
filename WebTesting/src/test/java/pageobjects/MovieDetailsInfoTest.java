@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import core.Factory;
+import data.DataManagement;
+import data.Movie;
 import page.MainPage;
 import page.movies.MovieDetailSummaryBox;
 import page.searchresult.ResultPage;
@@ -45,14 +47,15 @@ public class MovieDetailsInfoTest {
 
 	@Test
 	public void movieDetailInfoTest(){
+		Movie movie = DataManagement.getInstance().getMovieByID(1);
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 		resultPage.getTitleResultsControl().clickTitleLink("Hulk (2003)");	
 		int x = movieDetailPage.getMovieDetailSummaryControl().getUsersReviewsCount();
 		int y = movieDetailPage.getMovieDetailSummaryControl().getCriticReviewsCount();
-		Assert.assertEquals(movieDetailPage.getTitleBarControl().getMovieTitle(),"Hulk (2003)");
-		Assert.assertEquals(movieDetailPage.getTitleBarControl().getMovieDuration(), "2h 18min");	
+		Assert.assertEquals(movieDetailPage.getTitleBarControl().getMovieTitle(),movie.getTitle());
+		Assert.assertEquals(movieDetailPage.getTitleBarControl().getMovieDuration(), movie.getDurationHMins());	
 		Assert.assertEquals(x, 1444);
 		Assert.assertEquals(y, 267);
 	}

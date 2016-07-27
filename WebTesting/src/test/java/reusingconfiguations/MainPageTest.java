@@ -1,7 +1,6 @@
 package reusingconfiguations;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
@@ -22,15 +21,15 @@ public class MainPageTest {
 	@Test
 	public void test(){
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 	}
 	
 	@Test
 	public void test2(){
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Iron Man");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Iron Man");
 	}
 	
 

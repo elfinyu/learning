@@ -6,9 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import data.DataManagement;
+import page.IMDBPage;
 import page.PageObject;
 
-public class LoginSelectionPage extends PageObject{
+public class LoginSelectionPage extends IMDBPage{
 
 	
 	public LoginSelectionPage(WebDriver driver) {

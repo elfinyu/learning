@@ -8,8 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import page.IMDBPage;
+import page.PageObject;
 
-public class DropdownSuggestionSearch extends IMDBPage{
+public class DropdownSuggestionSearch extends PageObject{
 	
 	DropdownSuggestionSearch dropdownSuggestion;
 	public DropdownSuggestionSearch(WebDriver driver) {
@@ -23,7 +24,8 @@ public class DropdownSuggestionSearch extends IMDBPage{
 	By drop_down_option_list=By.xpath(".//a");
 	public void selectDropDownSuggestion(String strLabel){
 		List<WebElement> dropdownList=parentDropDown.findElements(drop_down_option_list);
-		this.clickOnLinkOfContainsString(dropdownList, strLabel);
+		IMDBPage.clickOnLinkOfContainsString(dropdownList, strLabel);
+		
 	}
 
 }

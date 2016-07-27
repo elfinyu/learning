@@ -11,8 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import page.IMDBPage;
+import page.PageObject;
 
-public class WatchlistPopPanel extends IMDBPage {
+public class WatchlistPopPanel extends PageObject {
 
 	public WatchlistPopPanel(WebDriver driver) {
 		super(driver);
@@ -28,7 +29,7 @@ public class WatchlistPopPanel extends IMDBPage {
 	public void selectWatchlistPanelLink(String linkLabel){
 		WebDriverWait waitA = new WebDriverWait(getDriver(), 10);
 		
-		mouseoverDisplay(strPanelLocator);
+		IMDBPage.mouseoverDisplay(strPanelLocator, getDriver());
 		waitA.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[@id='navMenu4']//li")));
 		waitA.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("a")));
 		

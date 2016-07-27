@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -33,8 +32,8 @@ public class SearchNameTest {
 	@Test
 	public void searchNameResult(){
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 		System.out.println("result rows: "+resultPage.getNameResultsControl().getNameResultsCount());
 		System.out.println("result links: "+resultPage.getNameResultsControl().getNameResultsLinksCount());
 		resultPage.getNameResultsControl().clickNameLink("Hulk Hogan (Actor, Rocky III (1982))");

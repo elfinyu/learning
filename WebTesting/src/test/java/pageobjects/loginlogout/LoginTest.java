@@ -19,7 +19,7 @@ public class LoginTest {
 	
 	WebDriver driver;
 	MainPage main;
-	NavigationHeader header;
+	
 	LoginSelectionPage loginSelection;
 	LoginPage loginPage;
 	String username;
@@ -32,7 +32,7 @@ public class LoginTest {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		main = Factory.getPage(MainPage.class, driver);
-		header = Factory.getPage(NavigationHeader.class, driver);
+		
 		loginSelection = Factory.getPage(LoginSelectionPage.class, driver);
 		loginPage = Factory.getPage(LoginPage.class, driver);
 		username = System.getProperty("username");
@@ -46,7 +46,7 @@ public class LoginTest {
 	public void testLogin(){
 	
 		main.launch();
-		header.clickLoginButton();
+		main.menuBar.clickLoginButton();
 		loginSelection.clickIMDbLogin();
 		loginPage.enterUsername(username);
 		loginPage.enterPassword(password);

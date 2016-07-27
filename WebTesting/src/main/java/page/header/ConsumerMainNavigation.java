@@ -7,12 +7,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import page.IMDBPage;
+import page.PageObject;
 import page.header.poppanel.EventsPopPanel;
 import page.header.poppanel.MoviesPopPanel;
 import page.header.poppanel.NewsCommPopPanel;
 import page.header.poppanel.WatchlistPopPanel;
 
-public class ConsumerMainNavigation extends IMDBPage {
+public class ConsumerMainNavigation extends PageObject {
 
 	//Movies,TV & Showtimes panels
 	MoviesPopPanel moviesPopPanelControl;
@@ -73,17 +74,17 @@ public class ConsumerMainNavigation extends IMDBPage {
 	By navigation_watchlist_link_locator = By.xpath(".//li[@id='navWatchlistMenu']//p[@class]//a");
 	
 	public void clickOnTitleMenuNav(String label){
-		this.clickOnLinkOfEqualString(consumerMainNav,navigation_title_link_locator,label);
+		IMDBPage.clickOnLinkOfEqualString(consumerMainNav,navigation_title_link_locator,label);
 	}
 	public void clickOnNameMenuNav(String label){
 		System.out.println("click ON name Menu Navigation!!");
-		this.clickOnLinkOfEqualString(consumerMainNav,navigation_name_link_locator,label);
+		IMDBPage.clickOnLinkOfEqualString(consumerMainNav,navigation_name_link_locator,label);
 	}	
 	public void clickOnNewsMenuNav(String label){
-		this.clickOnLinkOfEqualString(consumerMainNav,navigation_news_link_locator,label);
+		IMDBPage.clickOnLinkOfEqualString(consumerMainNav,navigation_news_link_locator,label);
 	}	
 	public void clickOnWatchListNav(String label){
-		this.clickOnLinkOfEqualString(consumerMainNav,navigation_watchlist_link_locator,label);
+		IMDBPage.clickOnLinkOfEqualString(consumerMainNav,navigation_watchlist_link_locator,label);
 	}	
 	
 }

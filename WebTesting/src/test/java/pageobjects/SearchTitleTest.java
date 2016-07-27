@@ -38,8 +38,8 @@ public class SearchTitleTest {
 	@Test
 	public void searchTitleResult(){
 		main.launch();
-		main.verfiySearchExist();
-		main.searchTitle("Hulk");
+		main.menuBar.verfiySearchExist();
+		main.menuBar.searchTitle("Hulk");
 		resultPage.getTitleResultsControl().clickTitleLink("Hulk (2003)");
 		Assert.assertEquals(movieDetailPage.getTitleBarControl().getMovieTitle(),"Hulk (2003)");
 		Assert.assertEquals(movieDetailPage.getTitleBarControl().getMovieDuration(), "2h 18min");	

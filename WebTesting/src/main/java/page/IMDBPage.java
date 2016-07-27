@@ -9,11 +9,15 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import core.Factory;
+import page.header.NavigationHeader;
+
 public class IMDBPage extends PageObject{
+	public NavigationHeader menuBar;
 	
 	public IMDBPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
+		menuBar = Factory.getPage(NavigationHeader.class, driver);
 	}
 	
 	protected List<WebElement> getListOfResult(WebElement parent,By locator){
@@ -47,12 +51,12 @@ public class IMDBPage extends PageObject{
 		return results.size();		
 	}
 	
-	protected void clickOnLinkOfEqualString(WebElement parent,By locator, String linkLabel){
+	public static void clickOnLinkOfEqualString(WebElement parent,By locator, String linkLabel){
 		List<WebElement> linkResultsList=parent.findElements(locator);
 		clickOnLinkOfEqualString(linkResultsList, linkLabel);
 	}
 	
-	protected void clickOnLinkOfEqualString(List<WebElement> linkResultsList, String linkLabel){
+	public static void clickOnLinkOfEqualString(List<WebElement> linkResultsList, String linkLabel){
 		WebElement foundElement=null;
 		String strTagName=null;
 
@@ -78,7 +82,7 @@ public class IMDBPage extends PageObject{
 		}		
 	}
 
-	public void clickOnLinkOfContainsString(List<WebElement> linkResultsList, String linkLabel){
+	public static void clickOnLinkOfContainsString(List<WebElement> linkResultsList, String linkLabel){
 		WebElement foundElement=null;
 		for(WebElement currLinkElement:linkResultsList){
 			System.out.println(currLinkElement.getText());
@@ -94,15 +98,15 @@ public class IMDBPage extends PageObject{
 		}		
 	}
 	
-	protected void mouseoverDisplay(String strHoverLocator){
-		JavascriptExecutor js=(JavascriptExecutor)getDriver();
+	public static void mouseoverDisplay(String strHoverLocator, WebDriver driver){
+		JavascriptExecutor js=(JavascriptExecutor)driver;
 		String hoverDisplayScript="document.querySelector('"+ strHoverLocator +"').setAttribute('style','display: block;');";
 		//System.out.println(hoverDisplayScript);
 		js.executeScript(hoverDisplayScript);
 	}
 	
-	protected void selectPopPanelLink(String locator,List<WebElement> linksList,String linkLabel){
-		mouseoverDisplay(locator);
+	public static void selectPopPanelLink(String locator,List<WebElement> linksList,String linkLabel, WebDriver driver){
+		mouseoverDisplay(locator, driver);
 		clickOnLinkOfEqualString(linksList, linkLabel);		
 	}
 }

@@ -1,5 +1,6 @@
 package page.searchresult;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -30,14 +31,16 @@ public class NameResultsPanel extends IMDBPage {
 	By results_text_locator_links = By.xpath(".//td[@class='result_text']/a");
 	
 	public int getNameResultsCount(){
-		return this.getElementCount(nameResultsDiv, results_text_locator);
+		return nameResultsDiv.findElements(results_text_locator).size();
 	}
 	
 	public int getNameResultsLinksCount(){
-		return this.getElementCount(nameResultsDiv, results_text_locator_links);	
+		return  nameResultsDiv.findElements(results_text_locator_links).size();	
 	}
 	
 	public void clickNameLink(String strLinkLabel){
+		
+		
 		this.clickOnLinkOfEqualString(nameResultsDiv, results_text_locator, strLinkLabel);
 	}
 }

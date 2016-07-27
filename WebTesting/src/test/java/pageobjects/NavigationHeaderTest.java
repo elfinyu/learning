@@ -12,11 +12,12 @@ import core.Factory;
 import page.MainPage;
 import page.header.NavigationHeader;
 
+
 public class NavigationHeaderTest {
+	
 	WebDriver driver;
 	MainPage main;
-	//DropDownSuggestionSearch dropdownSuggestion;
-	NavigationHeader navigationHeader;
+	
 	
 	@BeforeClass
 	public void init(){
@@ -24,32 +25,32 @@ public class NavigationHeaderTest {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		main = Factory.getPage(MainPage.class, driver);
-		navigationHeader = Factory.getPage(NavigationHeader.class,driver);
 	}
 	
 	@Test
-	public void navigationHeaderTest(){
+	public void menuBarTest(){
 		main.launch();
-		main.verfiySearchExist();
-		navigationHeader.getQuickSearchDropDownList().selectDropdownList("TV Episodes");
-		navigationHeader.getSearchBar().sendKeys("Hulk");
-		navigationHeader.getNavigationDropdownSearch().selectDropDownSuggestion("The Incredible Hulk (1978)");
+		NavigationHeader menuBar = main.menuBar;
+		menuBar.verfiySearchExist();
+		menuBar.getQuickSearchDropDownList().selectDropdownList("TV Episodes");
+		menuBar.getSearchBar().sendKeys("Hulk");
+		menuBar.getNavigationDropdownSearch().selectDropDownSuggestion("The Incredible Hulk (1978)");
 		
-		navigationHeader.getConsumerMainNav().clickOnTitleMenuNav("showtimes");
-		Assert.assertEquals(navigationHeader.getCurrentPageTitle(), "Showtimes and Cinemas for - IMDb");
+		menuBar.getConsumerMainNav().clickOnTitleMenuNav("showtimes");
+		Assert.assertEquals(menuBar.getCurrentPageTitle(), "Showtimes and Cinemas for - IMDb");
 		
-		navigationHeader.getConsumerMainNav().clickOnNameMenuNav("events");
-		Assert.assertEquals(navigationHeader.getCurrentPageTitle(), "Awards Central | Academy Awards, Globes & more - IMDb");
+		menuBar.getConsumerMainNav().clickOnNameMenuNav("events");
+		Assert.assertEquals(menuBar.getCurrentPageTitle(), "Awards Central | Academy Awards, Globes & more - IMDb");
 		
-		navigationHeader.getConsumerMainNav().clickOnNewsMenuNav("news");
-		Assert.assertEquals(navigationHeader.getCurrentPageTitle(), "IMDb :: Top News");
+		menuBar.getConsumerMainNav().clickOnNewsMenuNav("news");
+		Assert.assertEquals(menuBar.getCurrentPageTitle(), "IMDb :: Top News");
 		
-		navigationHeader.getConsumerMainNav().clickOnWatchListNav("watchlist");
-		Assert.assertEquals(navigationHeader.getCurrentPageTitle(), "Watchlist - IMDb");
+		menuBar.getConsumerMainNav().clickOnWatchListNav("watchlist");
+		Assert.assertEquals(menuBar.getCurrentPageTitle(), "Watchlist - IMDb");
 		
-		navigationHeader.clickFollowFacebook();
-		navigationHeader.clickFollowInstagram();
-		navigationHeader.clickFollowTwitter();
+		menuBar.clickFollowFacebook();
+		menuBar.clickFollowInstagram();
+		menuBar.clickFollowTwitter();
 	}
 	
 	@AfterClass
