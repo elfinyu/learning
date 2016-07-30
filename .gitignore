@@ -7,3 +7,5 @@
 /CoreJava/test-output
 /WebTesting/.idea
 /WebTesting/*.iml
+/RestService/.classpath
+/RestService/.project

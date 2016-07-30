@@ -1,0 +1,18 @@
+HTTP/1.1 302 Found
+Location: http://www.google.com/webhp
+Cache-Control: private
+Content-Type: text/html; charset=UTF-8
+P3P: CP="This is not a P3P policy! See https://www.google.com/support/accounts/answer/151657?hl=en for more info."
+Date: Sat, 30 Jul 2016 08:11:28 GMT
+Server: gws
+Content-Length: 224
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: NID=83=uUaCNVZl98oTFyFZKSdrRcUrWzl8hz7jGFZunXqdiM-l4aHz4bTK41z6I7u1VAmSm1Vsp6bnQTtrUrE-Dad7Mxu_p7b-31aJvonzqRNRZUqm7-eS9ePRropXtjVgfmnH; expires=Sun, 29-Jan-2017 08:11:28 GMT; path=/; domain=.google.com; HttpOnly
+
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>302 Moved</TITLE></HEAD><BODY>
+<H1>302 Moved</H1>
+The document has moved
+<A HREF="http://www.google.com/webhp">here</A>.
+</BODY></HTML>
