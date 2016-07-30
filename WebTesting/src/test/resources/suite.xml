@@ -1,7 +1,9 @@
-<suite name="Suite1" verbose="1"   parallel="classes" thread-count="3">
-    <test name="Regression1"   >
-        <packages>
-            <package name="pageobjects" />
-        </packages>
-    </test>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" verbose="1">
+	<test name="Regression1">
+		<packages>
+			<package name="pageobjects" />
+		</packages>
+		
+	</test>
 </suite>

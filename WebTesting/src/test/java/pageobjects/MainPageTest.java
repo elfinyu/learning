@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import core.Factory;
+import core.RetryFailure;
 import page.LinkCheckerUtils;
 import page.MainPage;
 import page.searchresult.ResultPage;
@@ -29,7 +30,7 @@ public class MainPageTest {
 		result = Factory.getPage(ResultPage.class, driver);
 	}
 	
-	@Test
+	@Test(retryAnalyzer=RetryFailure.class)
 	public void test(){
 		main.launch();
 		main.menuBar.verfiySearchExist();

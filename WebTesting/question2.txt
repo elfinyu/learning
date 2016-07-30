@@ -1,0 +1,100 @@
+Ques 2) How do you read data from excel ?
+Ques 3) What is the use of xpath ?
+Ques 4) What are different types of locators ?
+Ques 5) What is the difference between Assert and Verify?
+Ques 6) What is the alternate way to click on login button?
+Ques 7) How do you verify if the checkbox/radio is checked or not ?
+Ques 8) How do you handle alert pop-up ?
+Ques 9) How do you launch IE/chrome browser?
+Ques 10) How to perform right click using WebDriver?
+Ques 11) How do perform drag and drop using WebDriver?
+Ques 12) Give the example for method overload in WebDriver.
+Ques 13) How do you upload a file?
+Ques 14) How do you click on a menu item in a drop down menu?
+Ques 15) How do you simulate browser back and forward ?
+Ques 16) How do you get the current page URL ?
+Ques 17) What is the difference between ‘/’ and ‘//’ ?
+Ques 18) What is the difference between findElement and findElements?
+Ques 19) How do you achieve synchronization in WebDriver ?
+Ques 20) Write the code for Reading and Writing to Excel through Selenium ?
+Ques 21) How to get typed text from a textbox ?
+Ques 22) What are the different exceptions you got when working with WebDriver ?
+Ques 23) What are the languages supported by WebDriver ?
+Ques 24) How do you clear the contents of a textbox in selenium ?
+Ques 25) What is a Framework ?
+Ques 26) What are the prerequisites to run selenium webdriver?
+Ques 27) What are the advantages of selenium webdriver?
+Ques 28) What is WebDriverBackedSelenium ?
+Ques 29) How to invoke an application in webdriver ?
+Ques 30) What is Selenium Grid ?
+Ques 31) How to get the number of frames on a page ?
+Ques 32) How do you simulate scroll down action ?
+Ques 33) What is the command line we have to write inside a .bat file to execute a selenium project when we are using testng ?
+Ques 34) Which is the package which is to be imported while working with WebDriver ?
+Ques 35) How to check if an element is visible on the web page ?
+Ques 36) How to check if a button is enabled on the page ?
+Ques 37) How to check if a text is highlighted on the page ?
+Ques 38) How to check the checkbox or radio button is selected ?
+Ques 39) How to get the title of the page ?
+Ques 40) How do u get the width of the textbox ?
+Ques 41) How do u get the attribute of the web element ?
+Ques 42) How to check whether a text is underlined or not ?
+Ques 43) How to change the URL on a webpage using selenium web driver ?
+Ques 44) How to hover the mouse on an element ?
+Ques 45) What is the use of getOptions() method ?
+Ques 46) What is the use of deSelectAll() method ?
+Ques 47) Is WebElement an interface or a class ?
+Ques 48) FirefoxDriver is class or an interface and from where is it inherited ?
+Ques 49) Which is the super interface of webdriver ?
+Ques 50) What is the difference b/w close() and quit()?
+Ques 2) There is a scenario whenever “Assert.assertEquals()” function fails automatically it has to take screenshot. How can you achieve this ?
+Ques 3) How do you handle https website in selenium ?
+Ques 4) How to login into any site if its showing any authetication popup for user name and pass ?
+Ques 5) What is the name of Headless browser.
+Ques 6) Open a browser in memory means whenever it will try to open a browser the browser page must not come and can perform the operation internally.
+Ques 7) What are the benefits of using TestNG ?
+Ques 8) How do you take screen shot without using EventFiringWebDriver ?
+Ques 9) How do you send ENTER/TAB keys in WebDriver ?
+Ques 10) What is Datadriven framework & Keyword Driven ?
+Ans- Datadriven framework- In this Framework , while Test case logic resides in Test Scripts, the Test Data is separated and kept outside the Test Scripts.Test Data is read from the external files (Excel File) and are loaded into the variables inside the Test Script. Variables are used both for Input values and for Verification values.
+Keyword Driven framework- The Keyword-Driven or Table-Driven framework requires the development of data tables and keywords, independent of the test automation tool used to execute them . Tests can be designed with or without the Application. In a keyword-driven test, the functionality of the application-under-test is documented in a table as well as in step-by-step instructions for each test.
+Ques 11) While explaining the framework, what are points which should be covered ?
+Ques 12) How to switch back from a frame ?
+Ques 13) How to type text in a new line inside a text area ?
+Ques 14) What is the use of AutoIt tool ?
+Ques 15) How to perform double click using WebDriver ?
+Ques 16) How to press Shift+Tab ?
+Ques 17) What is the use of contextClick() ?
+Ques 18) What is the difference b/w getWindowHandles() and getWindowHandle() ?
+Ques 19) How do you accommodate project specific methods in your framework ?
+Ques 20) What are different components of your framework ?
+Ques 21) What are the browsers supported by Selenium IDE ?
+Ques 22) What are the limitations of Selenium IDE ?
+Ques 23) How to check all checkboxes in a page ?
+Ques 24) Count the number of links in a page.
+Ques 25) How do you identify the Xpath of element on your browser ?
+Ques 26) What is Selenium Webdriver ?
+Ques 27) What is Selenium IDE ?
+Ques 28) What are the flavors of selenium ?
+Ques 29) What is selenium ?
+Ques 30) Advantages of selenium over other tools ?
+Ques 31) What is main difference between RC and webdriver ?
+Ques 32) Why you choose webdriver over RC ?
+Ques 33) Which one is better xpath or CSS ?
+Ques 34) How will you handle dynamic elements ?
+Ques 35) what are the different assertions or check points used in your script ?
+Ques 36) What is actions class in WebDriver ?
+Ques 37) What is the difference between @BeforeMethod and @BeforeClass ?
+Ques 38) What are the different attributes for @Test annotation ?
+Ques 39) Can we run group of test cases using TestNG ?
+Ques 40) What is object repository ?
+Ques 41) What are oops concepts ?
+Ques 42) What is inheritance ?
+Ques 43) What is difference between overload and override ?
+Ques 44) Does java supports multiple inheritance ?
+Ques 45) Write a java program for swapping of two numbers ?
+Ques 46) Write a java program for factorial of a given number.
+Ques 47) What are the different access specifiers in Java?
+Ques 48) Why do we go for automation testing ?
+Ques 49) What is testing strategy ?
+Ques 50) ) write a code to make use of assert if my username is incorrect.

@@ -9,6 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import core.Factory;
+import core.RetryFailure;
 import page.MainPage;
 import page.header.NavigationHeader;
 
@@ -27,7 +28,7 @@ public class NavigationHeaderTest {
 		main = Factory.getPage(MainPage.class, driver);
 	}
 	
-	@Test
+	@Test(retryAnalyzer=RetryFailure.class)
 	public void menuBarTest(){
 		main.launch();
 		NavigationHeader menuBar = main.menuBar;

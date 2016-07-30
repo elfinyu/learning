@@ -23,8 +23,8 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/suite.xml</suiteXmlFile>
 					</suiteXmlFiles>
-					<parallel>methods</parallel>
-					<threadCount>3</threadCount>
+					<parallel>classes</parallel>
+					<threadCount>5</threadCount>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -36,7 +36,7 @@
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.9.10</version>
-			<scope>test</scope>
+			
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
 		<dependency>

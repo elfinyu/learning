@@ -13,6 +13,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import core.Factory;
+import core.RetryFailure;
 import data.DataManagement;
 import data.Movie;
 import page.MainPage;
@@ -41,7 +42,7 @@ public class MovieDetailsInfoTest {
 		movieDetailPage = Factory.getPage(MovieDetailPage.class, driver);
 	}
 
-	@Test
+	@Test(retryAnalyzer=RetryFailure.class)
 	public void movieDetailInfoTest(){
 		Movie movie = DataManagement.getInstance().getMovieByID(1);
 		main.launch();

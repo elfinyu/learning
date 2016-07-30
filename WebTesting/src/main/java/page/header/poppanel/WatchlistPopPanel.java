@@ -24,11 +24,13 @@ public class WatchlistPopPanel extends PageObject {
 	WebElement eventsButton;
 
 	By popup_panel_list=By.xpath(".//div[@id='navMenu4']//li");
-	final static String strPanelLocator="#navWatchlistMenu>div.sub_nav";
+	final static String abc="#navWatchlistMenu>div.sub_nav";
+	final static String strPanelLocator = "#navMenu4";
+	
 	
 	public void selectWatchlistPanelLink(String linkLabel){
 		WebDriverWait waitA = new WebDriverWait(getDriver(), 10);
-		
+		waitA.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='navMenu4']")));
 		IMDBPage.mouseoverDisplay(strPanelLocator, getDriver());
 		waitA.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[@id='navMenu4']//li")));
 		waitA.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("a")));

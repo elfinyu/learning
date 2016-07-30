@@ -20,6 +20,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import core.Factory;
+import core.RetryFailure;
 import page.MainPage;
 import page.movies.MovieDetailPage;
 import page.movies.MovieDetailSummaryBox;
@@ -48,7 +49,7 @@ public class OutPutMovieDetailsTest {
 		out = new PrintWriter(new FileWriter(strFile,true));
 	}
 
-	@Test
+	@Test(retryAnalyzer=RetryFailure.class)
 	public void movieDetailInfoTest(){
 		main.launch();
 		main.menuBar.verfiySearchExist();
@@ -70,7 +71,7 @@ public class OutPutMovieDetailsTest {
 		//out.println(strContent);
 	}
 
-	@Test
+	@Test(retryAnalyzer=RetryFailure.class)
 	public void getListOfResultsTest(){
 		main.launch();
 		main.menuBar.verfiySearchExist();

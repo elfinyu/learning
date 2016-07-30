@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import core.Factory;
+import core.RetryFailure;
 import page.MainPage;
 import page.header.ConsumerMainNavigation;
 
@@ -30,7 +31,7 @@ public class NavigationMenuTest {
 		consumerMainNav= Factory.getPage(ConsumerMainNavigation.class, driver);
 	}
 	
-	@Test
+	@Test(retryAnalyzer=RetryFailure.class)
 	public void navigationTest(){
 		main.launch();
 		consumerMainNav.clickOnTitleMenuNav("TV");
@@ -39,7 +40,7 @@ public class NavigationMenuTest {
 		Assert.assertEquals(actual, expected);
 	}
 	
-	@Test
+	@Test(retryAnalyzer=RetryFailure.class)
 	public void navigationPopPanelTest(){
 		main.launch();
 		
@@ -62,7 +63,7 @@ public class NavigationMenuTest {
 		Assert.assertEquals(actual, expected);
 	}
 	
-	@Test
+	@Test(retryAnalyzer=RetryFailure.class)
 	public void navigationPopPanelWatchlistTest(){
 		main.launch();
 		consumerMainNav.getWatchlistPopPanelControl().selectWatchlistPanelLink("nv_wl_img_1");

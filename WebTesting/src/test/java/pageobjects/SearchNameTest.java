@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import core.Factory;
+import core.RetryFailure;
 import page.MainPage;
 import page.movies.MovieDetailPage;
 import page.searchresult.ResultPage;
@@ -29,7 +30,7 @@ public class SearchNameTest {
 		movieDetailPage=Factory.getPage(MovieDetailPage.class, driver);
 	}
 	
-	@Test
+	@Test(retryAnalyzer=RetryFailure.class)
 	public void searchNameResult(){
 		main.launch();
 		main.menuBar.verfiySearchExist();
