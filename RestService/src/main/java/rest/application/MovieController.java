@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import data.DataManagement;
 import data.Movie;
+import rest.application.exception.MovieAlreadyExist;
 
 @RestController
 @RequestMapping("/movie")
@@ -33,9 +34,26 @@ public class MovieController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/create/{id]", method = RequestMethod.PUT)
-	public Movie updateMovie(@RequestBody Movie movie, @PathVariable(value = "id") final String movieName){
-		return null;
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public Movie updateMovie(@RequestBody Movie movie){
+		Movie movieByID = DataManagement.getInstance().getMovieByID(movie.getId());
+		if(movieByID != null){
+			throw new MovieAlreadyExist();
+			
+		}else{
+			DataManagement.getInstance().addMovie(movie);
+			return movie;
+		}
+		
+	}
+	
+	
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/updateMovie/{id}" , method= RequestMethod.PUT)
+	public void updateMovieName(){
+		
 	}
 
 }

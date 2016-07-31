@@ -98,6 +98,15 @@ public class DataManagement {
 	public List<Movie> getMovies() {
 		return movies;
 	}
+
+
+	public void addMovie(Movie movie) {
+		Movie movieByID = getMovieByID(movie.getId());
+		if(movieByID == null){
+			this.movies.add(movie);
+		}
+		
+	}
 	
 	
 
