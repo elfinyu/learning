@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.hamcrest.Matchers;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.jayway.restassured.RestAssured;
@@ -26,6 +27,13 @@ import data.Movie;
 
 public class TestGetMovies {
 
+	@BeforeClass
+	public void init(){
+		RestAssured.baseURI="http://192.168.8.101";
+		RestAssured.port=8080;
+		
+	}
+	
 	@Test
 	public void getMovieByID() {
 		String asString = given().auth().basic("user1", "secret1").when().get("movie/1").asString();
