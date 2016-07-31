@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.hamcrest.Matchers;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.jayway.restassured.RestAssured;
@@ -26,6 +27,13 @@ import data.Movie;
 
 public class TestGetMovies {
 
+	@BeforeClass
+	public void init(){
+		RestAssured.baseURI="http://192.168.8.101";
+		RestAssured.port=8080;
+		
+	}
+	
 	@Test
 	public void getMovieByID() {
 		String asString = given().auth().basic("user1", "secret1").when().get("movie/1").asString();
@@ -101,6 +109,9 @@ public class TestGetMovies {
 			.body("[0].releaseCountry",Matchers.equalTo("USA"))
 			.body("[0].releaseDate", Matchers.equalTo("20/06/2003"))
 			.contentType(ContentType.JSON)
+			.body("[1].name", Matchers.equalTo("Hulk2"))
+			.body("[1].duration_mins", Matchers.equalTo(200))
+			.body("list.size()", Matchers.equalTo(3))
 			.body("list.size()", Matchers.greaterThanOrEqualTo(0))
 			.body("list.size()", Matchers.lessThan(10))
 			.extract()
