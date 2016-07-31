@@ -20,7 +20,7 @@ public class MovieController {
 
 	@ResponseBody
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	public Movie echo(@PathVariable(value = "id") final int id, @AuthenticationPrincipal final UserDetails user) {
+	public Movie echo(@PathVariable(value = "id") final int id) {
 //		int myId = Integer.parseInt(id);
 		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
 		return movieByID;
@@ -33,7 +33,7 @@ public class MovieController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/update/{movieName]", method = RequestMethod.PUT)
+	@RequestMapping(value = "/create/{id]", method = RequestMethod.PUT)
 	public Movie updateMovie(@RequestBody Movie movie, @PathVariable(value = "id") final String movieName){
 		return null;
 	}
