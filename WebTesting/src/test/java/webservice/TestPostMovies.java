@@ -57,7 +57,7 @@ public class TestPostMovies {
 			.contentType("application/json")
 			.body(abc)
 		.when()
-			.post("/movie/create")
+			//.post("/movie/create")
 		.then()
 			.log().body()
 			.statusCode(200);
