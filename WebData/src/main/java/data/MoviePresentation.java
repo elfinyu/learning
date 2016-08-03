@@ -13,7 +13,7 @@ public class MoviePresentation extends Movie{
 	}
 	
 	public String getTitle(){
-		return getName() + " ("+yearOnly.format(getReleaseDate())+")";
+		return getName() + " ("+yearOnly.format(getReleasedate())+")";
 	}
 	
 	public String getDurationHMins(){
@@ -38,7 +38,7 @@ public class MoviePresentation extends Movie{
 	}
 
 	public void setReleaseDate(String releaseDateString) {
-		movie.setReleaseDate(releaseDateString);
+		movie.setReleasedate(releaseDateString);
 	}
 
 	public int getId() {

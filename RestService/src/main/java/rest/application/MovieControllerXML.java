@@ -18,11 +18,11 @@ import data.Movie;
 import rest.application.exception.MovieAlreadyExist;
 
 @RestController
-@RequestMapping("/movie")
-public class MovieController {
+@RequestMapping("/xml/movie/")
+public class MovieControllerXML {
 
 	@ResponseBody
-	@RequestMapping(value = "{id}", method = RequestMethod.GET,  produces= MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces= MediaType.APPLICATION_XML_VALUE)
 	public Movie echo(@PathVariable(value = "id") final int id) {
 //		int myId = Integer.parseInt(id);
 		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
@@ -31,7 +31,7 @@ public class MovieController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value="reset",method = RequestMethod.POST,produces= MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="reset",method = RequestMethod.POST, produces= MediaType.APPLICATION_XML_VALUE)
 	public void reset() {
 //		int myId = Integer.parseInt(id);
 		 DataManagement.getInstance().resetMovies();
@@ -39,13 +39,13 @@ public class MovieController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "all", method = RequestMethod.GET,produces= MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "all", method = RequestMethod.GET,  produces= MediaType.APPLICATION_XML_VALUE)
 	public List<Movie> getMovies() {
 		return DataManagement.getInstance().getMovies();
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/create", method = RequestMethod.POST, produces= MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/create", method = RequestMethod.POST, produces= MediaType.APPLICATION_XML_VALUE)
 	public Movie updateMovie(@RequestBody Movie movie){
 		Movie movieByID = DataManagement.getInstance().getMovieByID(movie.getId());
 		if(movieByID != null){
@@ -62,7 +62,7 @@ public class MovieController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value="/updateMovieName/{id}" , method= RequestMethod.PUT, produces= MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/updateMovieName/{id}" , method= RequestMethod.PUT, produces= MediaType.APPLICATION_XML_VALUE)
 	public Movie updateMovieName(@RequestParam String name, @PathVariable int id){
 		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
 		movieByID.setName(name);
@@ -71,7 +71,7 @@ public class MovieController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value="/delete/{id}" , method= RequestMethod.DELETE, produces= MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/delete/{id}" , method= RequestMethod.DELETE, produces= MediaType.APPLICATION_XML_VALUE)
 	public List<Movie> deleteMovie(@PathVariable int id){
 		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
 		DataManagement.getInstance().deleteMovie(movieByID);

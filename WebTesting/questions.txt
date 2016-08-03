@@ -6,46 +6,29 @@ Ques 6) What is the alternate way to click on login button?
 Ques 7) How do you verify if the checkbox/radio is checked or not ?
 Ques 8) How do you handle alert pop-up ?
 Ques 9) How do you launch IE/chrome browser?
-System.property.put(web.driver"), new ChromeDriver(), getURL
 Ques 10) How to perform right click using WebDriver?
-ACtions
 Ques 11) How do perform drag and drop using WebDriver?
-Actions
 Ques 12) Give the example for method overload in WebDriver.
-dont
 Ques 13) How do you upload a file?
-dont know
 Ques 14) How do you click on a menu item in a drop down menu?
-select
 Ques 15) How do you simulate browser back and forward ?
-driver.goBack
 Ques 16) How do you get the current page URL ?
-driver.getURL
 Ques 17) What is the difference between ‘/’ and ‘//’ ?
-
 Ques 18) What is the difference between findElement and findElements?
-single vs list
 Ques 19) How do you achieve synchronization in WebDriver ?
-connection.synchronize
 Ques 20) Write the code for Reading and Writing to Excel through Selenium ?
-
 Ques 21) How to get typed text from a textbox ?
-getText()
 Ques 22) What are the different exceptions you got when working with WebDriver ?
-
 Ques 23) What are the languages supported by WebDriver ?
-
 Ques 24) How do you clear the contents of a textbox in selenium ?
 Ques 25) What is a Framework ?
 Ques 26) What are the prerequisites to run selenium webdriver?
 Ques 27) What are the advantages of selenium webdriver?
-
 Ques 28) What is WebDriverBackedSelenium ?
 Ques 29) How to invoke an application in webdriver ?
 Ques 30) What is Selenium Grid ?
 Ques 31) How to get the number of frames on a page ?
 Ques 32) How do you simulate scroll down action ?
-??
 Ques 33) What is the command line we have to write inside a .bat file to execute a selenium project when we are using testng ?
 Ques 34) Which is the package which is to be imported while working with WebDriver ?
 Ques 35) How to check if an element is visible on the web page ?

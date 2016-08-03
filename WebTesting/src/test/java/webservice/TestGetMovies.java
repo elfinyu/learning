@@ -29,7 +29,7 @@ public class TestGetMovies {
 
 	@BeforeClass
 	public void init(){
-		RestAssured.baseURI="http://192.168.8.101";
+		RestAssured.baseURI="http://localhost";
 		RestAssured.port=8080;
 		
 	}
@@ -38,6 +38,14 @@ public class TestGetMovies {
 	public void getMovieByID() {
 		String asString = given().auth().basic("user1", "secret1").when().get("movie/1").asString();
 		System.out.println(asString);
+	}
+	
+	@Test
+	public void getMovieByIDXML() {
+		given().auth().basic("user1", "secret1").when().contentType(ContentType.XML)
+		.get("xml/movie/1").then().log().body();
+		
+		
 	}
 	
 	@Test
@@ -67,7 +75,7 @@ public class TestGetMovies {
 			.body("id",Matchers.equalTo(1))
 			.body("releaseCountry", Matchers.equalTo("USA"))
 			.body("duration_mins",Matchers.equalTo(138))
-			.body("releaseDate",Matchers.equalTo("20/06/2003"))
+			.body("releasedate",Matchers.equalTo("20/06/2003"))
 			.contentType(ContentType.JSON)
 			.statusLine(Matchers.equalToIgnoringCase("HTTP/1.1 200 OK"))
 		.extract()
@@ -107,11 +115,11 @@ public class TestGetMovies {
 			.body("[0].duration_mins", Matchers.equalTo(138))
 			.body("[0].id", Matchers.equalTo(1))
 			.body("[0].releaseCountry",Matchers.equalTo("USA"))
-			.body("[0].releaseDate", Matchers.equalTo("20/06/2003"))
+			.body("[0].releasedate", Matchers.equalTo("20/06/2003"))
 			.contentType(ContentType.JSON)
 			.body("[1].name", Matchers.equalTo("Hulk2"))
 			.body("[1].duration_mins", Matchers.equalTo(200))
-			.body("list.size()", Matchers.equalTo(3))
+			.body("list.size()", Matchers.equalTo(2))
 			.body("list.size()", Matchers.greaterThanOrEqualTo(0))
 			.body("list.size()", Matchers.lessThan(10))
 			.extract()

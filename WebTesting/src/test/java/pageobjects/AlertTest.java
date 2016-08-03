@@ -1,5 +1,7 @@
 package pageobjects;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -21,23 +23,32 @@ public class AlertTest {
 	@BeforeTest
 	public void init(){
 		System.setProperty("webdriver.chrome.driver", "D:\\developmentStack\\chromedriver\\chromedriver.exe");
-		driver = DriverFactory.INSTANCE.createDriver();
+		driver= new ChromeDriver();
+		//driver = DriverFactory.INSTANCE.createDriver(DriverFactory.INSTANCE.type.CHROME);
 	}
 	
 	@Test(retryAnalyzer=RetryFailure.class)
-	public void testAlert(){
+	public void testAlert() throws InterruptedException{
 		driver.get("http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
-		//button=driver.findElement(By.xpath("//button[contains(text(),'Edit & Run »')]"));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		button=driver.findElement(By.xpath("//button[contains(text(),'Run »')]"));
+		highlightElement(driver,button);
+		
+		WebElement iframe=driver.findElement(By.xpath("//iframe[@id='iframeResult']"));
+		highlightElement(driver,iframe);
+
+		driver.switchTo().frame(iframe);
 		button=driver.findElement(By.xpath("//body[@contenteditable='false']//button[contains(text(),'Try it')]"));
-		//button.click();
-//		button=driver.findElement(By.xpath("//button[@onclick='myFunction()']"));
+		highlightElement(driver,button);
 		System.out.println(button.getText());
-//		button.click();
-//		Alert alert = driver.switchTo().alert();
-//		alert.accept();
+		button.click();
+		Thread.sleep(3000);
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
 //		alert.dismiss();
 //		alert.sendKeys("Hello");
-//		driver.switchTo().defaultContent();
+		driver.switchTo().defaultContent();
 	}
 	@Test(retryAnalyzer=RetryFailure.class)
 	public void testChrome() throws Throwable {
