@@ -13,6 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.hamcrest.Matchers;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -75,7 +77,7 @@ public class TestGetMovies {
 			.body("id",Matchers.equalTo(1))
 			.body("releaseCountry", Matchers.equalTo("USA"))
 			.body("duration_mins",Matchers.equalTo(138))
-			.body("releaseDate",Matchers.equalTo("20/06/2003"))
+			.body("releasedate",Matchers.equalTo("20/06/2003"))
 			.contentType(ContentType.JSON)
 			.statusLine(Matchers.equalToIgnoringCase("HTTP/1.1 200 OK"))
 		.extract()
@@ -115,7 +117,7 @@ public class TestGetMovies {
 			.body("[0].duration_mins", Matchers.equalTo(138))
 			.body("[0].id", Matchers.equalTo(1))
 			.body("[0].releaseCountry",Matchers.equalTo("USA"))
-			.body("[0].releaseDate", Matchers.equalTo("20/06/2003"))
+			.body("[0].releasedate", Matchers.equalTo("20/06/2003"))
 			.contentType(ContentType.JSON)
 			.body("[1].name", Matchers.equalTo("Hulk2"))
 			.body("[1].duration_mins", Matchers.equalTo(200))
@@ -136,6 +138,28 @@ public class TestGetMovies {
 //		basic.when().
 	
 		
+	}
+	
+	@AfterMethod
+	public void reset(){
+		RestAssured
+		.given()
+			.authentication().basic("user1", "secret1")
+			.contentType("application/json")	
+		.when()
+			.post("movie/reset")
+			.then()
+			.log().body()
+			.statusCode(200);
+		RestAssured
+			.given()
+				.authentication().basic("user1", "secret1")
+			.when()
+				.get("movie/all")
+			.then()
+				.log().body()
+				.statusCode(200)
+				.body("list.size()", Matchers.equalTo(2));
 	}
 
 	@Test

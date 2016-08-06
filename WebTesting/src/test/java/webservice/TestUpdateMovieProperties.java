@@ -1,6 +1,7 @@
 package webservice;
 
 import org.hamcrest.Matchers;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ public class TestUpdateMovieProperties {
 		RestAssured.authentication=RestAssured.basic("user1", "secret1");
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void reset(){
 		RestAssured
 		.given()

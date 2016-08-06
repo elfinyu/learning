@@ -22,12 +22,12 @@ public class DataManagement {
 		
 			resetMoviesList();
 			for (Movie movie : movies) {
-				System.out.println(movie.getName());
-				SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//				System.out.println(movie.getName());
+//				SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 				
-				System.out.println(movie.getReleaseCountry());
-				System.out.println(movie.getDuration_mins());
-				System.out.println(movie.getId());
+//				System.out.println(movie.getReleaseCountry());
+//				System.out.println(movie.getDuration_mins());
+//				System.out.println(movie.getId());
 				
 			}
 			

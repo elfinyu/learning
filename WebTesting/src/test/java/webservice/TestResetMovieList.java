@@ -23,7 +23,7 @@ public class TestResetMovieList {
 			String jsonMsg="{\"name\": \"TestMovie\","
 					+ "\"id\": 3,\"releaseCountry\": \"CN\","
 					+ "\"duration_mins\": 138,"
-					+ "\"releaseDate\": \"31/07/2016\"}";
+					+ "\"releasedate\": \"31/07/2016\"}";
 			RestAssured
 			.given()
 				

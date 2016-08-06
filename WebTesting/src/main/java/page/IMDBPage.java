@@ -60,6 +60,7 @@ public class IMDBPage extends PageObject{
 		WebElement foundElement=null;
 		String strTagName=null;
 
+		
 		//System.out.println(linkResultsList.size());
 		for(WebElement currLinkElement:linkResultsList){
 			//System.out.println(currLinkElement.getText());

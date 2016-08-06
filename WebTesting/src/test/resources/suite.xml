@@ -2,8 +2,7 @@
 <suite name="Suite1" verbose="1">
 	<test name="Regression1">
 		<packages>
-			<package name="pageobjects" />
+			<package name="webservice" />
 		</packages>
-		
 	</test>
 </suite>

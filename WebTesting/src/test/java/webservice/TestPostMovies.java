@@ -1,6 +1,9 @@
 package webservice;
 
+import org.hamcrest.Matchers;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -25,7 +28,7 @@ public class TestPostMovies {
 		String jsonMsg="{\"name\": \"TestMovie\","
 				+ "\"id\": 3,\"releaseCountry\": \"CN\","
 				+ "\"duration_mins\": 138,"
-				+ "\"releaseDate\": \"31/07/2016\"}";
+				+ "\"releasedate\": \"31/07/2016\"}";
 		RestAssured
 		.given()
 			.authentication().basic("user1", "secret1")
@@ -57,7 +60,7 @@ public class TestPostMovies {
 			.contentType("application/json")
 			.body(abc)
 		.when()
-			//.post("/movie/create")
+			.post("/movie/create")
 		.then()
 			.log().body()
 			.statusCode(200);
@@ -66,5 +69,27 @@ public class TestPostMovies {
 	@AfterClass
 	public void tearDown(){
 		
+	}
+	
+	@AfterMethod
+	public void reset(){
+		RestAssured
+		.given()
+			.authentication().basic("user1", "secret1")
+			.contentType("application/json")	
+		.when()
+			.post("movie/reset")
+			.then()
+			.log().body()
+			.statusCode(200);
+		RestAssured
+			.given()
+				.authentication().basic("user1", "secret1")
+			.when()
+				.get("movie/all")
+			.then()
+				.log().body()
+				.statusCode(200)
+				.body("list.size()", Matchers.equalTo(2));
 	}
 }
