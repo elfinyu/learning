@@ -58,6 +58,7 @@ public class Movie {
 
 	@XmlElement
 	public void setDuration_mins(int duration_mins) {
+		System.out.println("set duration");
 		this.duration_mins = duration_mins;
 	}
 
