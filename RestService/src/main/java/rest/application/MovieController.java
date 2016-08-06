@@ -71,9 +71,6 @@ public class MovieController {
 		
 	}
 	
-	
-	
-	
 	@ResponseBody
 	@RequestMapping(value="/updateMovieName/{id}" , method= RequestMethod.PUT, produces= MediaType.APPLICATION_JSON_VALUE)
 	public Movie updateMovieName(@RequestParam String name, @PathVariable int id){
@@ -83,6 +80,32 @@ public class MovieController {
 		return movieByID;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/updateMovieReleaseDate/{id}",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
+	public Movie updateMovieReleaseDate(@RequestParam String releasedate,@PathVariable int id){
+		logger.info("[updateMovieReleaseDate] PUT : Update Movie called parameters : [Date:"+releasedate+"],[id:"+id+"]");
+		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
+		movieByID.setReleasedate(releasedate);
+		return movieByID;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
+	public Movie updateMovieReleaseCountry(@RequestParam String releaseCountry,@PathVariable int id){
+		logger.info("[updateMovieReleaseCountry] PUT : Update Movie called parameters : [release_country:"+releaseCountry+"],[id:"+id+"]");
+		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
+		movieByID.setReleaseCountry(releaseCountry);
+		return movieByID;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/updateMovieDurationMins/{id}",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
+	public Movie updateMovieDurationMins(@RequestParam int duration_mins,@PathVariable int id){
+		logger.info("[updateMovieDurationMins] PUT : Update Movie called parameters : [Duration_mins:"+duration_mins+"],[id:"+id+"]");
+		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
+		movieByID.setDuration_mins(duration_mins);
+		return null;
+	}
 	
 	@ResponseBody
 	@RequestMapping(value="/delete/{id}" , method= RequestMethod.DELETE, produces= MediaType.APPLICATION_JSON_VALUE)
