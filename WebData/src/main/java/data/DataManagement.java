@@ -71,6 +71,7 @@ public class DataManagement {
 		columnMapping.put("date", "releasedate");
 		columnMapping.put("release_country", "releaseCountry");
 		columnMapping.put("duration_mins", "duration_mins");
+		columnMapping.put("type", "type");
 
 		beanStrategy.setColumnMapping(columnMapping);
 		return beanStrategy;

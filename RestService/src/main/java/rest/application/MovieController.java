@@ -90,7 +90,7 @@ public class MovieController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/updateMovieReleaseCountry/{id}",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
 	public Movie updateMovieReleaseCountry(@RequestParam String releaseCountry,@PathVariable int id){
 		logger.info("[updateMovieReleaseCountry] PUT : Update Movie called parameters : [release_country:"+releaseCountry+"],[id:"+id+"]");
 		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
@@ -104,7 +104,16 @@ public class MovieController {
 		logger.info("[updateMovieDurationMins] PUT : Update Movie called parameters : [Duration_mins:"+duration_mins+"],[id:"+id+"]");
 		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
 		movieByID.setDuration_mins(duration_mins);
-		return null;
+		return movieByID;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/updateMovieType/{id}",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
+	public Movie updateMovieType(@RequestParam String type,@PathVariable int id){
+		logger.info("[updateMovieType] PUT : Update Movie called parameters : [MovieType:"+type+"],[ id:"+ id +"]");
+		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
+		movieByID.setType(type);
+		return movieByID;
 	}
 	
 	@ResponseBody

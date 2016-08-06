@@ -60,4 +60,12 @@ public class MoviePresentation extends Movie{
 	public void setReleaseCountry(String releaseCountry) {
 		movie.setReleaseCountry(releaseCountry);
 	}
+	
+	public void setType(String type){
+		movie.setType(type);
+	}
+	
+	public String getType(){
+		return movie.getType();
+	}
 }

@@ -66,6 +66,17 @@ public class TestPutMovie {
 			.log().body();
 	}
 	
+	@Test
+	public void putTestUpdateMovieType(){
+		RestAssured
+		.given()
+		.when()
+			.param("type", "1")
+			.put("movie/updateMovieType/1")
+		.then()
+			.log().body();
+	}
+	
 	@AfterTest
 	public void resetTest(){
 

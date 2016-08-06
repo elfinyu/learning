@@ -20,7 +20,17 @@ public class Movie {
 	private int id;
 	private String releaseCountry;
 	private int duration_mins;
+	private String type;
 	
+	public String getType() {
+		return type;
+	}
+
+	@XmlElement
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public String getName() {
 		return name;
 	}
