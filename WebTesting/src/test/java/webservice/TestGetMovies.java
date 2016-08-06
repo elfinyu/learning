@@ -33,7 +33,6 @@ public class TestGetMovies {
 	public void init(){
 		RestAssured.baseURI="http://localhost";
 		RestAssured.port=8080;
-		
 	}
 	
 	@Test
@@ -44,10 +43,13 @@ public class TestGetMovies {
 	
 	@Test
 	public void getMovieByIDXML() {
-		given().auth().basic("user1", "secret1").when().contentType(ContentType.XML)
-		.get("xml/movie/1").then().log().body();
-		
-		
+		given()
+			.auth().basic("user1", "secret1").
+		when()
+			.contentType(ContentType.XML)
+			.get("xml/movie/1").
+		then()
+			.log().body();
 	}
 	
 	@Test

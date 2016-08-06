@@ -74,14 +74,14 @@ public class TestPostMovies {
 	@AfterMethod
 	public void reset(){
 		RestAssured
-		.given()
-			.authentication().basic("user1", "secret1")
-			.contentType("application/json")	
-		.when()
-			.post("movie/reset")
+			.given()
+				.authentication().basic("user1", "secret1")
+				.contentType("application/json")	
+			.when()
+				.post("movie/reset")
 			.then()
-			.log().body()
-			.statusCode(200);
+				.log().body()
+				.statusCode(200);
 		RestAssured
 			.given()
 				.authentication().basic("user1", "secret1")
