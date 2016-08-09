@@ -22,13 +22,13 @@ public class DataManagement {
 		
 			resetMoviesList();
 			for (Movie movie : movies) {
-//				System.out.println(movie.getName());
+				System.out.println(movie.getName());
 //				SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 				
-//				System.out.println(movie.getReleaseCountry());
-//				System.out.println(movie.getDuration_mins());
-//				System.out.println(movie.getId());
-				
+				System.out.println(movie.getReleaseCountry());
+				System.out.println(movie.getDuration_mins());
+				System.out.println(movie.getId());
+				System.out.println(movie.getType());
 			}
 			
 			
@@ -69,9 +69,9 @@ public class DataManagement {
 		columnMapping.put("id", "id");
 		columnMapping.put("title", "name");
 		columnMapping.put("date", "releasedate");
+		columnMapping.put("type", "type");
 		columnMapping.put("release_country", "releaseCountry");
 		columnMapping.put("duration_mins", "duration_mins");
-		columnMapping.put("type", "type");
 
 		beanStrategy.setColumnMapping(columnMapping);
 		return beanStrategy;
