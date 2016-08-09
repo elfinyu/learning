@@ -34,6 +34,11 @@ public class MovieController {
 		Movie movieByID = DataManagement.getInstance().getMovieByID(id);
 		if(movieByID == null){
 			logger.info("[getMovie] GET : there is no such movie with id "+ id);
+		}else{
+			logger.info("[getMovie] GET : movieType -" + movieByID.getType());
+			logger.info("[getMovie] GET : movieDuration_mins -" + movieByID.getDuration_mins());
+			logger.info("[getMovie] GET : movie ID -" + movieByID.getId());
+			logger.info("[getMovie] GET : movie Name -" + movieByID.getName());
 		}
 		return movieByID;
 	}
